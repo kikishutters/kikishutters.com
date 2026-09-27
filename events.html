@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events | Kiki Shutters</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0d0d0d;
+      color: #f5f2ed;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 25px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #292929;
+    }
+
+    .logo {
+      font-size: 18px;
+      letter-spacing: 4px;
+    }
+
+    .back {
+      color: #aaa;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    main {
+      padding: 90px 6%;
+    }
+
+    .label {
+      color: #777;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(50px, 8vw, 100px);
+      font-weight: normal;
+      margin-bottom: 60px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .empty {
+      color: #777;
+      padding: 80px 20px;
+      border: 1px solid #292929;
+      text-align: center;
+      grid-column: 1 / -1;
+    }
+
+    footer {
+      padding: 30px 6%;
+      color: #666;
+      font-size: 12px;
+      border-top: 1px solid #292929;
+    }
+
+    @media (max-width: 650px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">KIKI SHUTTERS</div>
+
+  <a href="index.html" class="back">
+    ← Back to Portfolio
+  </a>
+</header>
+
+<main>
+
+  <div class="label">Selected Work</div>
+
+  <h1>Events</h1>
+
+  <div class="gallery">
+
+    <div class="empty">
+      Your event photographs will appear here.
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  © 2026 Kiki Shutters · Ibadan, Nigeria
+</footer>
+
+</body>
+</html>
