@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiki Shutters | Photography</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 25px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo {
+      font-size: 24px;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 14px;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 7%;
+      background: #151515;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 10vw, 120px);
+      line-height: .9;
+      letter-spacing: -4px;
+    }
+
+    .hero p {
+      margin-top: 25px;
+      color: #bbb;
+      font-size: 18px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 25px;
+      border: 1px solid white;
+      color: white;
+      text-decoration: none;
+      width: fit-content;
+    }
+
+    section {
+      padding: 90px 7%;
+    }
+
+    .title {
+      font-size: 38px;
+      margin-bottom: 35px;
+      letter-spacing: 2px;
+    }
+
+    .about {
+      max-width: 700px;
+      color: #bbb;
+      font-size: 18px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .category {
+      padding: 60px 30px;
+      border: 1px solid #333;
+      font-size: 24px;
+    }
+
+    .contact {
+      background: #f2f2f2;
+      color: #111;
+    }
+
+    .contact p {
+      margin-bottom: 15px;
+    }
+
+    footer {
+      padding: 30px 7%;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        display: block;
+      }
+
+      nav {
+        margin-top: 15px;
+      }
+
+      nav a {
+        margin-right: 15px;
+        margin-left: 0;
+      }
+
+      .categories {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">KIKI SHUTTERS</div>
+
+  <nav>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>KIKI<br>SHUTTERS</h1>
+  <p>Photography & Retouching · Ibadan, Nigeria</p>
+  <a href="#portfolio" class="button">VIEW PORTFOLIO</a>
+</section>
+
+<section id="portfolio">
+  <h2 class="title">PORTFOLIO</h2>
+
+  <div class="categories">
+    <div class="category">Portraits</div>
+    <div class="category">Fashion</div>
+    <div class="category">Beauty</div>
+    <div class="category">Editorial</div>
+    <div class="category">Events</div>
+    <div class="category">Retouching</div>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="title">ABOUT</h2>
+
+  <p class="about">
+    Kiki Shutters is a photography and retouching brand based in Ibadan, Nigeria.
+    I create clean, expressive and refined images with a focus on portraits,
+    fashion, beauty and editorial photography.
+  </p>
+</section>
+
+<section id="contact" class="contact">
+  <h2 class="title">LET'S WORK</h2>
+
+  <p>Available for photography bookings and creative projects.</p>
+
+  <a class="button" href="https://wa.me/2349113599816">
+    BOOK A SHOOT
+  </a>
+</section>
+
+<footer>
+  © 2026 Kiki Shutters. All rights reserved.
+</footer>
+
+</body>
+</html>
