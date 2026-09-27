@@ -3,133 +3,320 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kiki Shutters | Photography</title>
+
+  <title>Kiki Shutters | Photography & Retouching</title>
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
+      background: #0d0d0d;
+      color: #f5f2ed;
       font-family: Arial, sans-serif;
-      background: #111;
-      color: #fff;
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
     header {
-      padding: 25px 7%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #333;
+      padding: 24px 6%;
+      background: rgba(13, 13, 13, 0.95);
+      border-bottom: 1px solid #292929;
     }
 
     .logo {
-      font-size: 24px;
-      letter-spacing: 3px;
-      font-weight: bold;
+      font-size: 20px;
+      letter-spacing: 4px;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
     }
 
     nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 14px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #c8c4bd;
+      transition: 0.3s;
     }
 
+    nav a:hover {
+      color: white;
+    }
+
+    /* HERO */
+
     .hero {
-      min-height: 85vh;
+      min-height: 88vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 7%;
-      background: #151515;
+      padding: 8%;
+      background: linear-gradient(120deg, #0d0d0d, #171717);
+    }
+
+    .small-text {
+      color: #aaa;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
     }
 
     .hero h1 {
-      font-size: clamp(55px, 10vw, 120px);
-      line-height: .9;
-      letter-spacing: -4px;
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: clamp(65px, 12vw, 160px);
+      line-height: 0.85;
+      letter-spacing: -6px;
     }
 
     .hero p {
-      margin-top: 25px;
-      color: #bbb;
-      font-size: 18px;
+      max-width: 550px;
+      margin-top: 35px;
+      color: #aaa;
+      font-size: 17px;
     }
 
-    .button {
+    .hero-button {
       display: inline-block;
-      margin-top: 30px;
-      padding: 14px 25px;
-      border: 1px solid white;
-      color: white;
-      text-decoration: none;
       width: fit-content;
-    }
-
-    section {
-      padding: 90px 7%;
-    }
-
-    .title {
-      font-size: 38px;
-      margin-bottom: 35px;
+      margin-top: 35px;
+      padding: 15px 28px;
+      border: 1px solid #eee;
+      font-size: 12px;
       letter-spacing: 2px;
+      transition: 0.3s;
     }
 
-    .about {
-      max-width: 700px;
-      color: #bbb;
-      font-size: 18px;
-    }
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-
-    .category {
-      padding: 60px 30px;
-      border: 1px solid #333;
-      font-size: 24px;
-    }
-
-    .contact {
-      background: #f2f2f2;
+    .hero-button:hover {
+      background: #eee;
       color: #111;
     }
 
-    .contact p {
-      margin-bottom: 15px;
+    /* GENERAL */
+
+    section {
+      padding: 110px 7%;
     }
+
+    .section-label {
+      color: #888;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: clamp(40px, 6vw, 75px);
+      font-weight: normal;
+      margin-bottom: 50px;
+    }
+
+    /* PORTFOLIO */
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+    }
+
+    .portfolio-card {
+      position: relative;
+      min-height: 280px;
+      display: flex;
+      align-items: flex-end;
+      padding: 35px;
+      background: #181818;
+      border: 1px solid #292929;
+      overflow: hidden;
+      transition: 0.4s;
+    }
+
+    .portfolio-card:hover {
+      background: #242424;
+      transform: translateY(-4px);
+    }
+
+    .portfolio-card span {
+      font-family: Georgia, serif;
+      font-size: 34px;
+    }
+
+    .portfolio-card small {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      color: #777;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    /* ABOUT */
+
+    .about-content {
+      max-width: 850px;
+    }
+
+    .about-content p {
+      color: #aaa;
+      font-size: 20px;
+      line-height: 1.9;
+    }
+
+    /* SERVICES */
+
+    .services {
+      border-top: 1px solid #292929;
+    }
+
+    .service-list {
+      border-top: 1px solid #292929;
+    }
+
+    .service {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 0;
+      border-bottom: 1px solid #292929;
+    }
+
+    .service span:first-child {
+      font-family: Georgia, serif;
+      font-size: 25px;
+    }
+
+    .service span:last-child {
+      color: #777;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: #eeeae3;
+      color: #111;
+    }
+
+    .contact .section-label {
+      color: #777;
+    }
+
+    .contact h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(45px, 7vw, 90px);
+      font-weight: normal;
+      line-height: 1;
+    }
+
+    .contact p {
+      max-width: 550px;
+      margin-top: 25px;
+      color: #555;
+    }
+
+    .contact-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 28px;
+      background: #111;
+      color: white;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    /* FOOTER */
 
     footer {
       padding: 30px 7%;
-      color: #777;
-      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      color: #666;
+      font-size: 12px;
     }
 
-    @media (max-width: 600px) {
+    /* MOBILE */
+
+    @media (max-width: 650px) {
+
       header {
-        display: block;
+        padding: 20px 5%;
+      }
+
+      .logo {
+        font-size: 16px;
       }
 
       nav {
-        margin-top: 15px;
+        gap: 12px;
       }
 
       nav a {
-        margin-right: 15px;
-        margin-left: 0;
+        font-size: 9px;
       }
 
-      .categories {
+      .hero {
+        min-height: 80vh;
+        padding: 12% 6%;
+      }
+
+      .hero h1 {
+        letter-spacing: -4px;
+      }
+
+      section {
+        padding: 80px 6%;
+      }
+
+      .portfolio-grid {
         grid-template-columns: 1fr;
+      }
+
+      .portfolio-card {
+        min-height: 220px;
+      }
+
+      .about-content p {
+        font-size: 17px;
+      }
+
+      .service span:first-child {
+        font-size: 20px;
+      }
+
+      footer {
+        display: block;
+      }
+
+      footer p:last-child {
+        margin-top: 10px;
       }
     }
   </style>
@@ -137,58 +324,190 @@
 
 <body>
 
-<header>
-  <div class="logo">KIKI SHUTTERS</div>
+  <!-- HEADER -->
 
-  <nav>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <header>
+    <div class="logo">KIKI SHUTTERS</div>
 
-<section class="hero">
-  <h1>KIKI<br>SHUTTERS</h1>
-  <p>Photography & Retouching · Ibadan, Nigeria</p>
-  <a href="#portfolio" class="button">VIEW PORTFOLIO</a>
-</section>
+    <nav>
+      <a href="#portfolio">Work</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<section id="portfolio">
-  <h2 class="title">PORTFOLIO</h2>
 
-  <div class="categories">
-    <div class="category">Portraits</div>
-    <div class="category">Fashion</div>
-    <div class="category">Beauty</div>
-    <div class="category">Editorial</div>
-    <div class="category">Events</div>
-    <div class="category">Retouching</div>
-  </div>
-</section>
+  <!-- HERO -->
 
-<section id="about">
-  <h2 class="title">ABOUT</h2>
+  <section class="hero">
 
-  <p class="about">
-    Kiki Shutters is a photography and retouching brand based in Ibadan, Nigeria.
-    I create clean, expressive and refined images with a focus on portraits,
-    fashion, beauty and editorial photography.
-  </p>
-</section>
+    <div class="small-text">
+      Photographer & Retoucher · Ibadan, Nigeria
+    </div>
 
-<section id="contact" class="contact">
-  <h2 class="title">LET'S WORK</h2>
+    <h1>
+      KIKI<br>
+      SHUTTERS
+    </h1>
 
-  <p>Available for photography bookings and creative projects.</p>
+    <p>
+      Clean, expressive and refined photography focused on
+      portraits, fashion, beauty and editorial imagery.
+    </p>
 
-  <a class="button" href="https://wa.me/2349113599816">
-    BOOK A SHOOT
-  </a>
-</section>
+    <a href="#portfolio" class="hero-button">
+      VIEW MY WORK
+    </a>
 
-<footer>
-  © 2026 Kiki Shutters. All rights reserved.
-</footer>
+  </section>
+
+
+  <!-- PORTFOLIO -->
+
+  <section id="portfolio">
+
+    <div class="section-label">Selected Work</div>
+
+    <h2 class="section-title">Portfolio</h2>
+
+    <div class="portfolio-grid">
+
+      <a href="portraits.html" class="portfolio-card">
+        <small>01</small>
+        <span>Portraits</span>
+      </a>
+
+      <a href="fashion.html" class="portfolio-card">
+        <small>02</small>
+        <span>Fashion</span>
+      </a>
+
+      <a href="beauty.html" class="portfolio-card">
+        <small>03</small>
+        <span>Beauty</span>
+      </a>
+
+      <a href="editorial.html" class="portfolio-card">
+        <small>04</small>
+        <span>Editorial</span>
+      </a>
+
+      <a href="events.html" class="portfolio-card">
+        <small>05</small>
+        <span>Events</span>
+      </a>
+
+      <a href="retouching.html" class="portfolio-card">
+        <small>06</small>
+        <span>Retouching</span>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="section-label">About</div>
+
+    <h2 class="section-title">The Photographer</h2>
+
+    <div class="about-content">
+
+      <p>
+        Kiki Shutters is a photography and retouching brand based
+        in Ibadan, Nigeria. I create clean, expressive and refined
+        imagery with a focus on portraits, fashion, beauty and
+        editorial photography.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+
+  <section id="services" class="services">
+
+    <div class="section-label">What I Do</div>
+
+    <h2 class="section-title">Services</h2>
+
+    <div class="service-list">
+
+      <div class="service">
+        <span>Portrait Photography</span>
+        <span>Photography</span>
+      </div>
+
+      <div class="service">
+        <span>Fashion & Editorial</span>
+        <span>Photography</span>
+      </div>
+
+      <div class="service">
+        <span>Beauty Photography</span>
+        <span>Photography</span>
+      </div>
+
+      <div class="service">
+        <span>Event Photography</span>
+        <span>Photography</span>
+      </div>
+
+      <div class="service">
+        <span>Photo Retouching</span>
+        <span>Editing</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="contact">
+
+    <div class="section-label">Bookings & Creative Projects</div>
+
+    <h2>Let's create<br>something beautiful.</h2>
+
+    <p>
+      Available for photography bookings, creative projects
+      and collaborations.
+    </p>
+
+    <a
+      href="https://wa.me/2349113599816"
+      class="contact-button"
+    >
+      BOOK A SHOOT
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>© 2026 Kiki Shutters</p>
+
+    <p>Ibadan, Nigeria</p>
+
+  </footer>
 
 </body>
 </html>
+
+    
+     
+    
+    
+  
