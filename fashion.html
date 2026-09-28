@@ -195,6 +195,26 @@ function changeImage(direction) {
   currentImage = (currentImage + direction + images.length) % images.length;
   document.getElementById("lightbox-img").src = images[currentImage];
 }
+  let touchStartX = 0;
+
+const lightbox = document.getElementById("lightbox");
+
+lightbox.addEventListener("touchstart", function(e) {
+  touchStartX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener("touchend", function(e) {
+  const touchEndX = e.changedTouches[0].clientX;
+  const difference = touchStartX - touchEndX;
+
+  if (Math.abs(difference) > 50) {
+    if (difference > 0) {
+      changeImage(1);
+    } else {
+      changeImage(-1);
+    }
+  }
+});
 </script>
 
 </body>
