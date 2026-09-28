@@ -5,7 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Portraits | Kiki Shutters</title>
+.gallery img {
+    cursor: pointer;
+}
 
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.close-lightbox,
+.prev,
+.next {
+    position: absolute;
+    color: white;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.close-lightbox {
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+}
+
+.prev {
+    left: 20px;
+    font-size: 50px;
+}
+
+.next {
+    right: 20px;
+    font-size: 50px;
+}
   <style>
     * {
       margin: 0;
