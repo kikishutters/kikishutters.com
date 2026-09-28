@@ -135,6 +135,39 @@
 <footer>
   © 2026 Kiki Shutters · Ibadan, Nigeria
 </footer>
+<div class="lightbox" id="lightbox">
+    <span class="close-lightbox" onclick="closeLightbox()">×</span>
+    <span class="prev" onclick="changeImage(-1)">‹</span>
+    <img id="lightbox-img" src="">
+    <span class="next" onclick="changeImage(1)">›</span>
+</div>
 
+<script>
+const images = [
+    "IMG_8610.jpg",
+    "IMG_8511-Recovered.jpg",
+    "IMG_8521.jpg",
+    "IMG_8526.jpg",
+    "IMG_8528.jpg",
+    "IMG_8569.jpg"
+];
+
+let currentImage = 0;
+
+function openLightbox(index) {
+    currentImage = index;
+    document.getElementById("lightbox-img").src = images[currentImage];
+    document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+function changeImage(direction) {
+    currentImage = (currentImage + direction + images.length) % images.length;
+    document.getElementById("lightbox-img").src = images[currentImage];
+}
+</script>
 </body>
 </html>
