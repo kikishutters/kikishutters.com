@@ -4,9 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Kiki Shutters | Photography & Retouching</title>
+  <title>Kiki Shutters | Photographer & Retoucher in Ibadan</title>
+
+  <meta name="description" content="Kiki Shutters — photographer and retoucher based in Ibadan, Nigeria. Portrait, fashion, beauty, editorial and event photography.">
 
   <style>
+
+    /* =========================
+       RESET
+    ========================= */
+
     * {
       margin: 0;
       padding: 0;
@@ -18,10 +25,11 @@
     }
 
     body {
-      background: #0d0d0d;
-      color: #f5f2ed;
+      background: #0b0b0b;
+      color: #f3f0ea;
       font-family: Arial, sans-serif;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
@@ -29,308 +37,726 @@
       text-decoration: none;
     }
 
-    /* HEADER */
+    img {
+      max-width: 100%;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 24px 6%;
-      background: rgba(13, 13, 13, 0.95);
-      border-bottom: 1px solid #292929;
+      justify-content: space-between;
+
+      padding: 18px 6%;
+
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid #252525;
     }
 
     .logo-img {
-  width: 50px;
-  height: auto;
-  display: block;
-}
+      width: 70px;
+      height: auto;
+      display: block;
+    }
+
     nav {
       display: flex;
-      gap: 28px;
+      gap: 32px;
     }
 
     nav a {
-      font-size: 12px;
-      letter-spacing: 1.5px;
+      font-size: 11px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      color: #c8c4bd;
-      transition: 0.3s;
+      color: #aaa;
+
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: white;
+      color: #fff;
     }
 
-    /* HERO */
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
-  min-height: 88vh;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 7%;
-  align-items: center;
-  padding: 6% 8%;
-  background: #0d0d0d;
-}
+      min-height: calc(100vh - 80px);
 
-.hero-image {
-  height: 72vh;
-  overflow: hidden;
-}
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
 
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+      gap: 7%;
+      align-items: center;
 
-.hero-content {
-  max-width: 520px;
-}
+      padding: 6% 8%;
 
-.small-text {
-  color: #999;
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 25px;
-}
-
-.hero h1 {
-  font-family: Georgia, serif;
-  font-weight: normal;
-  font-size: clamp(65px, 9vw, 130px);
-  line-height: 0.85;
-  letter-spacing: -5px;
-}
-
-.hero p {
-  max-width: 500px;
-  margin-top: 35px;
-  color: #aaa;
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.hero-button {
-  display: inline-block;
-  width: fit-content;
-  margin-top: 35px;
-  padding: 15px 28px;
-  border: 1px solid #eee;
-  color: #f5f2ed;
-  font-size: 11px;
-  letter-spacing: 2px;
-  transition: 0.3s;
-}
-
-.hero-button:hover {
-  background: #eee;
-  color: #111;
-}
-
-@media (max-width: 800px) {
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 50px 6%;
-  }
-
-  .hero-image {
-    height: 60vh;
-    order: 1;
-  }
-
-  .hero-content {
-    order: 2;
-  }
-
-  .hero h1 {
-    font-size: clamp(60px, 18vw, 100px);
-  }
-}
-    /* GENERAL */
-
-    section {
-      padding: 110px 7%;
+      background:
+        radial-gradient(circle at 80% 20%, #1a1a1a 0%, transparent 35%),
+        #0b0b0b;
     }
 
-    .section-label {
-      color: #888;
+    .hero-image {
+      height: 76vh;
+      min-height: 520px;
+
+      overflow: hidden;
+
+      animation: heroImage 1.2s ease both;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      transition: transform 1s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.025);
+    }
+
+    .hero-content {
+      max-width: 560px;
+
+      animation: heroText 1s ease 0.15s both;
+    }
+
+    .small-text {
+      color: #999;
+
       font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 18px;
+
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: clamp(65px, 9vw, 135px);
+
+      font-weight: normal;
+
+      line-height: 0.82;
+
+      letter-spacing: -6px;
+
+      color: #f3f0ea;
+    }
+
+    .hero p {
+      max-width: 480px;
+
+      margin-top: 38px;
+
+      color: #999;
+
+      font-size: 16px;
+
+      line-height: 1.8;
+    }
+
+    .hero-button {
+      display: inline-block;
+
+      margin-top: 35px;
+
+      padding: 15px 28px;
+
+      border: 1px solid #ddd;
+
+      font-size: 11px;
+
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .hero-button:hover {
+      background: #f3f0ea;
+      color: #111;
+
+      transform: translateY(-3px);
+    }
+
+
+    /* =========================
+       GENERAL SECTION
+    ========================= */
+
+    section {
+      padding: 120px 7%;
+    }
+
+    .section-label {
+      color: #777;
+
+      font-size: 10px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 16px;
     }
 
     .section-title {
-      font-family: Georgia, serif;
-      font-size: clamp(40px, 6vw, 75px);
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: clamp(45px, 7vw, 90px);
+
       font-weight: normal;
-      margin-bottom: 50px;
+
+      line-height: 0.95;
+
+      margin-bottom: 55px;
     }
 
-    /* PORTFOLIO */
+
+    /* =========================
+       FEATURED PHOTOGRAPHY
+    ========================= */
+
+    .featured {
+      background: #111;
+    }
+
+    .featured-grid {
+      display: grid;
+
+      grid-template-columns: 1.2fr 0.8fr;
+
+      gap: 12px;
+    }
+
+    .featured-main {
+      height: 680px;
+
+      overflow: hidden;
+
+      position: relative;
+    }
+
+    .featured-side {
+      display: grid;
+
+      grid-template-rows: 1fr 1fr;
+
+      gap: 12px;
+    }
+
+    .featured-card {
+      height: 334px;
+
+      overflow: hidden;
+
+      position: relative;
+
+      background: #181818;
+    }
+
+    .featured-main img,
+    .featured-card img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      transition: transform 0.7s ease;
+    }
+
+    .featured-main:hover img,
+    .featured-card:hover img {
+      transform: scale(1.035);
+    }
+
+    .image-caption {
+      position: absolute;
+
+      left: 25px;
+      bottom: 22px;
+
+      font-size: 10px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      color: white;
+
+      background: rgba(0, 0, 0, 0.55);
+
+      padding: 8px 12px;
+    }
+
+
+    /* =========================
+       PORTFOLIO CATEGORIES
+    ========================= */
 
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 12px;
     }
 
     .portfolio-card {
+      height: 430px;
+
       position: relative;
-      min-height: 280px;
-      display: flex;
-      align-items: flex-end;
-      padding: 35px;
-      background: #181818;
-      border: 1px solid #292929;
+
       overflow: hidden;
-      transition: 0.4s;
+
+      background: #171717;
     }
 
-    .portfolio-card:hover {
-      background: #242424;
-      transform: translateY(-4px);
+    .portfolio-card img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      filter: brightness(0.72);
+
+      transition:
+        transform 0.7s ease,
+        filter 0.5s ease;
     }
 
-    .portfolio-card span {
-      font-family: Georgia, serif;
-      font-size: 34px;
+    .portfolio-card:hover img {
+      transform: scale(1.05);
+
+      filter: brightness(0.5);
     }
 
-    .portfolio-card small {
+    .portfolio-overlay {
       position: absolute;
-      top: 25px;
-      right: 25px;
-      color: #777;
-      font-size: 11px;
-      letter-spacing: 2px;
+
+      inset: 0;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: flex-end;
+
+      padding: 28px;
+
+      background: linear-gradient(
+        transparent 45%,
+        rgba(0,0,0,0.8)
+      );
     }
 
-    /* ABOUT */
+    .portfolio-overlay span {
+      color: #aaa;
 
-    .about-content {
+      font-size: 10px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 6px;
+    }
+
+    .portfolio-overlay h3 {
+      font-family: Georgia, serif;
+
+      font-size: 32px;
+
+      font-weight: normal;
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      background: #0b0b0b;
+    }
+
+    .about-inner {
       max-width: 850px;
     }
 
-    .about-content p {
-      color: #aaa;
-      font-size: 20px;
-      line-height: 1.9;
+    .about-text {
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: clamp(27px, 4vw, 48px);
+
+      line-height: 1.25;
+
+      color: #dedbd5;
     }
 
-    /* SERVICES */
+    .about-small {
+      max-width: 650px;
+
+      margin-top: 30px;
+
+      color: #888;
+
+      font-size: 15px;
+
+      line-height: 1.8;
+    }
+
+
+    /* =========================
+       SERVICES
+    ========================= */
 
     .services {
-      border-top: 1px solid #292929;
+      background: #111;
     }
 
-    .service-list {
-      border-top: 1px solid #292929;
+    .services-list {
+      border-top: 1px solid #303030;
     }
 
     .service {
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
-      padding: 25px 0;
-      border-bottom: 1px solid #292929;
+
+      padding: 28px 0;
+
+      border-bottom: 1px solid #303030;
+
+      transition: padding 0.3s ease;
     }
 
-    .service span:first-child {
+    .service:hover {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .service-name {
       font-family: Georgia, serif;
-      font-size: 25px;
+
+      font-size: 28px;
+
+      font-weight: normal;
     }
 
-    .service span:last-child {
+    .service-description {
       color: #777;
+
       font-size: 12px;
-      letter-spacing: 2px;
+
+      letter-spacing: 1px;
+
       text-transform: uppercase;
     }
 
-    /* CONTACT */
+
+    /* =========================
+       CONTACT / BOOKING
+    ========================= */
 
     .contact {
-      background: #eeeae3;
-      color: #111;
-    }
+      padding-top: 150px;
+      padding-bottom: 150px;
 
-    .contact .section-label {
-      color: #777;
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at center,
+          #1a1a1a 0%,
+          #0b0b0b 55%
+        );
     }
 
     .contact h2 {
       font-family: Georgia, serif;
-      font-size: clamp(45px, 7vw, 90px);
+
+      font-size: clamp(50px, 9vw, 110px);
+
       font-weight: normal;
-      line-height: 1;
+
+      line-height: 0.95;
     }
 
     .contact p {
-      max-width: 550px;
-      margin-top: 25px;
-      color: #555;
+      max-width: 500px;
+
+      margin: 30px auto;
+
+      color: #888;
+
+      font-size: 15px;
     }
 
     .contact-button {
       display: inline-block;
-      margin-top: 30px;
-      padding: 15px 28px;
-      background: #111;
-      color: white;
-      font-size: 12px;
+
+      margin-top: 15px;
+
+      padding: 17px 35px;
+
+      background: #f3f0ea;
+
+      color: #111;
+
+      font-size: 11px;
+
       letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease;
     }
 
-    /* FOOTER */
+    .contact-button:hover {
+      transform: translateY(-3px);
+
+      background: white;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      padding: 30px 7%;
       display: flex;
+
       justify-content: space-between;
+
+      align-items: center;
+
+      padding: 30px 7%;
+
+      border-top: 1px solid #292929;
+
       color: #666;
-      font-size: 12px;
+
+      font-size: 11px;
+
+      letter-spacing: 1px;
     }
 
-    /* MOBILE */
+    .footer-social {
+      color: #888;
 
-    @media (max-width: 650px) {
+      transition: color 0.3s ease;
+    }
 
-      header {
-        padding: 20px 5%;
+    .footer-social:hover {
+      color: white;
+    }
+
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    @keyframes heroImage {
+
+      from {
+        opacity: 0;
+        transform: translateX(-25px);
       }
 
-      .logo {
-        font-size: 16px;
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+    }
+
+    @keyframes heroText {
+
+      from {
+        opacity: 0;
+        transform: translateX(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      header {
+        padding: 16px 5%;
+      }
+
+      .logo-img {
+        width: 62px;
       }
 
       nav {
-        gap: 12px;
+        gap: 15px;
       }
 
       nav a {
         font-size: 9px;
+        letter-spacing: 1px;
       }
 
+
       .hero {
-        min-height: 80vh;
-        padding: 12% 6%;
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        padding: 40px 6% 80px;
+
+        min-height: auto;
+      }
+
+      .hero-image {
+        order: 1;
+
+        height: 65vh;
+
+        min-height: 450px;
+      }
+
+      .hero-content {
+        order: 2;
       }
 
       .hero h1 {
-        letter-spacing: -4px;
+        font-size: clamp(65px, 20vw, 105px);
+
+        letter-spacing: -5px;
       }
 
+
       section {
-        padding: 80px 6%;
+        padding: 85px 6%;
+      }
+
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-main {
+        height: 500px;
+      }
+
+      .featured-side {
+        grid-template-columns: 1fr 1fr;
+
+        grid-template-rows: 260px;
+      }
+
+      .featured-card {
+        height: 260px;
+      }
+
+
+      .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .portfolio-card {
+        height: 330px;
+      }
+
+
+      .service {
+        display: block;
+      }
+
+      .service-description {
+        margin-top: 6px;
+      }
+
+
+      .contact {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+
+
+      footer {
+        flex-direction: column;
+
+        gap: 12px;
+
+        text-align: center;
+      }
+
+    }
+
+
+    @media (max-width: 550px) {
+
+      nav {
+        gap: 10px;
+      }
+
+      nav a {
+        font-size: 8px;
+      }
+
+      .hero-image {
+        height: 58vh;
+        min-height: 400px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .featured-main {
+        height: 450px;
+      }
+
+      .featured-side {
+        grid-template-columns: 1fr;
+        grid-template-rows: 300px 300px;
+      }
+
+      .featured-card {
+        height: 300px;
       }
 
       .portfolio-grid {
@@ -338,89 +764,312 @@
       }
 
       .portfolio-card {
-        min-height: 220px;
+        height: 430px;
       }
 
-      .about-content p {
-        font-size: 17px;
+      .section-title {
+        margin-bottom: 35px;
       }
 
-      .service span:first-child {
-        font-size: 20px;
-      }
-
-      footer {
-        display: block;
-      }
-
-      footer p:last-child {
-        margin-top: 10px;
-      }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- HEADER -->
+
+  <!-- =========================
+       HEADER
+  ========================= -->
 
   <header>
-    <img src="Group%20of%204%20Objects.png" alt="Kiki Shutters" class="logo-img">
+
+    <a href="index.html">
+      <img
+        src="Group%20of%204%20Objects.png"
+        alt="Kiki Shutters"
+        class="logo-img"
+      >
+    </a>
 
     <nav>
-      <a href="#portfolio">Work</a>
+      <a href="#work">Work</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
+
   </header>
 
 
-  <!-- HERO -->
 
- <section class="hero">
+  <!-- =========================
+       HERO
+  ========================= -->
 
-  <div class="hero-image">
-    <img src="IMG_4798.jpg" alt="Photography by Kiki Shutters">
-  </div>
+  <section class="hero">
 
-  <div class="hero-content">
-    <div class="small-text">
-      Photographer & Retoucher · Ibadan, Nigeria
+    <div class="hero-image">
+
+      <img
+        src="IMG_4798.jpg"
+        alt="Photography by Kiki Shutters"
+      >
+
     </div>
 
-    <h1>
-      KIKI<br>
-      SHUTTERS
-    </h1>
 
-    <p>
-      Clean, expressive and refined photography focused on
-      portraits, fashion, beauty and editorial imagery.
-    </p>
+    <div class="hero-content">
 
-    <a href="#portfolio" class="hero-button">
-      VIEW MY WORK
-    </a>
-  </div>
+      <div class="small-text">
+        Photographer & Retoucher · Ibadan, Nigeria
+      </div>
 
-</section>
-  
-  <!-- ABOUT -->
-
-  <section id="about">
-
-    <div class="section-label">About</div>
-
-    <h2 class="section-title">The Photographer</h2>
-
-    <div class="about-content">
+      <h1>
+        KIKI<br>
+        SHUTTERS
+      </h1>
 
       <p>
-        Kiki Shutters is a photography and retouching brand based
-        in Ibadan, Nigeria. I create clean, expressive and refined
-        imagery with a focus on portraits, fashion, beauty and
-        editorial photography.
+        Clean, expressive and refined photography
+        created around people, style, beauty and story.
+      </p>
+
+      <a href="#work" class="hero-button">
+        View My Work
+      </a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       FEATURED PHOTOGRAPHY
+  ========================= -->
+
+  <section class="featured" id="work">
+
+    <div class="section-label">
+      Selected Work
+    </div>
+
+    <h2 class="section-title">
+      Featured<br>
+      Photography
+    </h2>
+
+
+    <div class="featured-grid">
+
+      <a href="fashion.html" class="featured-main">
+
+        <img
+          src="IMG_0420.jpg2.jpg"
+          alt="Fashion photography by Kiki Shutters"
+        >
+
+        <div class="image-caption">
+          Fashion
+        </div>
+
+      </a>
+
+
+      <div class="featured-side">
+
+        <a href="portraits.html" class="featured-card">
+
+          <img
+            src="IMG_8610.jpg"
+            alt="Portrait photography by Kiki Shutters"
+          >
+
+          <div class="image-caption">
+            Portraits
+          </div>
+
+        </a>
+
+
+        <a href="fashion.html" class="featured-card">
+
+          <img
+            src="IMG_0520.jpg"
+            alt="Editorial fashion photography by Kiki Shutters"
+          >
+
+          <div class="image-caption">
+            Editorial
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       PORTFOLIO CATEGORIES
+  ========================= -->
+
+  <section class="portfolio">
+
+    <div class="section-label">
+      Explore
+    </div>
+
+    <h2 class="section-title">
+      Portfolio
+    </h2>
+
+
+    <div class="portfolio-grid">
+
+
+      <a href="portraits.html" class="portfolio-card">
+
+        <img
+          src="IMG_8521.jpg"
+          alt="Portrait photography"
+        >
+
+        <div class="portfolio-overlay">
+
+          <span>01</span>
+
+          <h3>Portraits</h3>
+
+        </div>
+
+      </a>
+
+
+      <a href="fashion.html" class="portfolio-card">
+
+        <img
+          src="IMG_0385.jpg21.jpg"
+          alt="Fashion photography"
+        >
+
+        <div class="portfolio-overlay">
+
+          <span>02</span>
+
+          <h3>Fashion</h3>
+
+        </div>
+
+      </a>
+
+
+      <a href="beauty.html" class="portfolio-card">
+
+        <img
+          src="IMG_4798.jpg"
+          alt="Beauty photography"
+        >
+
+        <div class="portfolio-overlay">
+
+          <span>03</span>
+
+          <h3>Beauty</h3>
+
+        </div>
+
+      </a>
+
+
+      <a href="editorial.html" class="portfolio-card">
+
+        <img
+          src="IMG_0520.jpg"
+          alt="Editorial photography"
+        >
+
+        <div class="portfolio-overlay">
+
+          <span>04</span>
+
+          <h3>Editorial</h3>
+
+        </div>
+
+      </a>
+
+
+      <a href="events.html" class="portfolio-card">
+
+        <img
+          src="IMG_8569.jpg"
+          alt="Event photography"
+        >
+
+        <div class="portfolio-overlay">
+
+          <span>05</span>
+
+          <h3>Events</h3>
+
+        </div>
+
+      </a>
+
+
+      <a href="retouching.html" class="portfolio-card">
+
+        <img
+          src="IMG_8511-Recovered.jpg"
+          alt="Photo retouching by Kiki Shutters"
+        >
+
+        <div class="portfolio-overlay">
+
+          <span>06</span>
+
+          <h3>Retouching</h3>
+
+        </div>
+
+      </a>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
+  <section class="about" id="about">
+
+    <div class="section-label">
+      About Kiki
+    </div>
+
+    <div class="about-inner">
+
+      <p class="about-text">
+        I’m a photographer and retoucher based in Ibadan,
+        creating clean, expressive imagery with a focus
+        on portraits, fashion, beauty and editorial work.
+      </p>
+
+      <p class="about-small">
+        My approach is simple — strong images, thoughtful
+        composition and polished retouching without losing
+        what makes the original photograph feel real.
       </p>
 
     </div>
@@ -428,84 +1077,148 @@
   </section>
 
 
-  <!-- SERVICES -->
 
-  <section id="services" class="services">
+  <!-- =========================
+       SERVICES
+  ========================= -->
 
-    <div class="section-label">What I Do</div>
+  <section class="services" id="services">
 
-    <h2 class="section-title">Services</h2>
+    <div class="section-label">
+      What I Do
+    </div>
 
-    <div class="service-list">
+    <h2 class="section-title">
+      Services
+    </h2>
 
-      <div class="service">
-        <span>Portrait Photography</span>
-        <span>Photography</span>
-      </div>
 
-      <div class="service">
-        <span>Fashion & Editorial</span>
-        <span>Photography</span>
-      </div>
+    <div class="services-list">
 
-      <div class="service">
-        <span>Beauty Photography</span>
-        <span>Photography</span>
-      </div>
 
       <div class="service">
-        <span>Event Photography</span>
-        <span>Photography</span>
+
+        <div class="service-name">
+          Portrait Photography
+        </div>
+
+        <div class="service-description">
+          Studio · Outdoor · Personal
+        </div>
+
       </div>
 
+
       <div class="service">
-        <span>Photo Retouching</span>
-        <span>Editing</span>
+
+        <div class="service-name">
+          Fashion & Editorial
+        </div>
+
+        <div class="service-description">
+          Creative · Campaign · Editorial
+        </div>
+
       </div>
+
+
+      <div class="service">
+
+        <div class="service-name">
+          Beauty Photography
+        </div>
+
+        <div class="service-description">
+          Beauty · Makeup · Hair
+        </div>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-name">
+          Event Photography
+        </div>
+
+        <div class="service-description">
+          Events · Celebrations · Moments
+        </div>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-name">
+          Photo Retouching
+        </div>
+
+        <div class="service-description">
+          Skin · Colour · Editorial Retouching
+        </div>
+
+      </div>
+
 
     </div>
 
   </section>
 
 
-  <!-- CONTACT -->
 
-  <section id="contact" class="contact">
+  <!-- =========================
+       CONTACT
+  ========================= -->
 
-    <div class="section-label">Bookings & Creative Projects</div>
+  <section class="contact" id="contact">
 
-    <h2>Let's create<br>something beautiful.</h2>
+    <div class="section-label">
+      Let's Work Together
+    </div>
+
+    <h2>
+      Have a<br>
+      project?
+    </h2>
 
     <p>
-      Available for photography bookings, creative projects
-      and collaborations.
+      For bookings, creative projects, collaborations
+      and photography enquiries, get in touch.
     </p>
 
     <a
       href="https://wa.me/2349113599816"
       class="contact-button"
+      target="_blank"
     >
-      BOOK A SHOOT
+      Book a Shoot
     </a>
 
   </section>
 
 
-  <!-- FOOTER -->
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
   <footer>
 
-    <p>© 2026 Kiki Shutters</p>
+    <div>
+      © 2026 Kiki Shutters · Ibadan, Nigeria
+    </div>
 
-    <p>Ibadan, Nigeria</p>
+    <a
+      href="https://instagram.com/kikishutters"
+      target="_blank"
+      class="footer-social"
+    >
+      Instagram · @Kikishutters
+    </a>
 
   </footer>
 
+
 </body>
 </html>
-
-    
-     
-    
-    
-  
