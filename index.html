@@ -824,6 +824,14 @@
   height: 240px;
 }
 
+.portfolio-overlay {
+  padding: 15px;
+}
+
+.portfolio-overlay h3 {
+  font-size: 20px;
+}
+
       /* ABOUT */
 
       .about-grid {
@@ -844,13 +852,16 @@
       /* SERVICES */
 
       .services-grid {
-        grid-template-columns: 1fr;
-      }
+  grid-template-columns: 1fr 1fr;
+}
 
-      .service {
-        min-height: 190px;
-        padding: 30px 25px;
-      }
+.service {
+  min-height: 210px;
+  padding: 25px 18px;
+}
+      .service:last-child {
+  grid-column: 1 / -1;
+}
 
       .service-number {
         margin-bottom: 25px;
