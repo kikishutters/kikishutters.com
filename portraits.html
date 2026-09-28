@@ -5,98 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Portraits | Kiki Shutters</title>
+
   <style>
-.gallery img {
-    cursor: pointer;
-}
-
-.lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.95);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-}
-
-.lightbox img {
-    max-width: 90%;
-    max-height: 90vh;
-    object-fit: contain;
-}
-
-.close-lightbox,
-.prev,
-.next {
-    position: absolute;
-    color: white;
-    cursor: pointer;
-    z-index: 10000;
-}
-
-.close-lightbox {
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-}
-
-.prev {
-    left: 20px;
-    font-size: 50px;
-}
-
-.next {
-    right: 20px;
-    font-size: 50px;
-}
-  <style>
-    .gallery img {
-    cursor: pointer;
-}
-
-.lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.95);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-}
-
-.lightbox img {
-    max-width: 90%;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-}
-
-.close-lightbox,
-.prev,
-.next {
-    position: absolute;
-    color: white;
-    cursor: pointer;
-    z-index: 10000;
-}
-
-.close-lightbox {
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-}
-
-.prev {
-    left: 20px;
-    font-size: 50px;
-}
-
-.next {
-    right: 20px;
-    font-size: 50px;
-}
     * {
       margin: 0;
       padding: 0;
@@ -160,6 +70,7 @@
       object-fit: cover;
       min-height: 350px;
       background: #181818;
+      cursor: pointer;
     }
 
     .empty {
@@ -175,6 +86,49 @@
       color: #666;
       font-size: 12px;
       border-top: 1px solid #292929;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .close-lightbox,
+    .prev,
+    .next {
+      position: absolute;
+      color: white;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
+    .close-lightbox {
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+    }
+
+    .prev {
+      left: 20px;
+      font-size: 50px;
+    }
+
+    .next {
+      right: 20px;
+      font-size: 50px;
     }
 
     @media (max-width: 650px) {
@@ -205,19 +159,13 @@
 
   <h1>Portraits</h1>
 
- <<div class="gallery">
+  <div class="gallery">
     <img src="IMG_8610.jpg" alt="Portrait photography by Kiki Shutters" onclick="openLightbox(0)">
     <img src="IMG_8511-Recovered.jpg" alt="Portrait photography by Kiki Shutters" onclick="openLightbox(1)">
     <img src="IMG_8521.jpg" alt="Portrait photography by Kiki Shutters" onclick="openLightbox(2)">
     <img src="IMG_8526.jpg" alt="Portrait photography by Kiki Shutters" onclick="openLightbox(3)">
     <img src="IMG_8528.jpg" alt="Portrait photography by Kiki Shutters" onclick="openLightbox(4)">
     <img src="IMG_8569.jpg" alt="Portrait photography by Kiki Shutters" onclick="openLightbox(5)">
-</div>
-
-    <div class="empty">
-      Your portrait photographs will appear here.
-    </div>
-
   </div>
 
 </main>
@@ -225,39 +173,41 @@
 <footer>
   © 2026 Kiki Shutters · Ibadan, Nigeria
 </footer>
+
 <div class="lightbox" id="lightbox">
-    <span class="close-lightbox" onclick="closeLightbox()">×</span>
-    <span class="prev" onclick="changeImage(-1)">‹</span>
-    <img id="lightbox-img" src="">
-    <span class="next" onclick="changeImage(1)">›</span>
+  <span class="close-lightbox" onclick="closeLightbox()">×</span>
+  <span class="prev" onclick="changeImage(-1)">‹</span>
+  <img id="lightbox-img" src="">
+  <span class="next" onclick="changeImage(1)">›</span>
 </div>
 
 <script>
 const images = [
-    "IMG_8610.jpg",
-    "IMG_8511-Recovered.jpg",
-    "IMG_8521.jpg",
-    "IMG_8526.jpg",
-    "IMG_8528.jpg",
-    "IMG_8569.jpg"
+  "IMG_8610.jpg",
+  "IMG_8511-Recovered.jpg",
+  "IMG_8521.jpg",
+  "IMG_8526.jpg",
+  "IMG_8528.jpg",
+  "IMG_8569.jpg"
 ];
 
 let currentImage = 0;
 
 function openLightbox(index) {
-    currentImage = index;
-    document.getElementById("lightbox-img").src = images[currentImage];
-    document.getElementById("lightbox").style.display = "flex";
+  currentImage = index;
+  document.getElementById("lightbox-img").src = images[currentImage];
+  document.getElementById("lightbox").style.display = "flex";
 }
 
 function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
+  document.getElementById("lightbox").style.display = "none";
 }
 
 function changeImage(direction) {
-    currentImage = (currentImage + direction + images.length) % images.length;
-    document.getElementById("lightbox-img").src = images[currentImage];
+  currentImage = (currentImage + direction + images.length) % images.length;
+  document.getElementById("lightbox-img").src = images[currentImage];
 }
 </script>
+
 </body>
 </html>
