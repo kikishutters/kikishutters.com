@@ -68,53 +68,92 @@
     /* HERO */
 
     .hero {
-      min-height: 88vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 8%;
-      background: linear-gradient(120deg, #0d0d0d, #171717);
-    }
+  min-height: 88vh;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 7%;
+  align-items: center;
+  padding: 6% 8%;
+  background: #0d0d0d;
+}
 
-    .small-text {
-      color: #aaa;
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 25px;
-    }
+.hero-image {
+  height: 72vh;
+  overflow: hidden;
+}
 
-    .hero h1 {
-      font-family: Georgia, serif;
-      font-weight: normal;
-      font-size: clamp(65px, 12vw, 160px);
-      line-height: 0.85;
-      letter-spacing: -6px;
-    }
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-    .hero p {
-      max-width: 550px;
-      margin-top: 35px;
-      color: #aaa;
-      font-size: 17px;
-    }
+.hero-content {
+  max-width: 520px;
+}
 
-    .hero-button {
-      display: inline-block;
-      width: fit-content;
-      margin-top: 35px;
-      padding: 15px 28px;
-      border: 1px solid #eee;
-      font-size: 12px;
-      letter-spacing: 2px;
-      transition: 0.3s;
-    }
+.small-text {
+  color: #999;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
 
-    .hero-button:hover {
-      background: #eee;
-      color: #111;
-    }
+.hero h1 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: clamp(65px, 9vw, 130px);
+  line-height: 0.85;
+  letter-spacing: -5px;
+}
 
+.hero p {
+  max-width: 500px;
+  margin-top: 35px;
+  color: #aaa;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.hero-button {
+  display: inline-block;
+  width: fit-content;
+  margin-top: 35px;
+  padding: 15px 28px;
+  border: 1px solid #eee;
+  color: #f5f2ed;
+  font-size: 11px;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.hero-button:hover {
+  background: #eee;
+  color: #111;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 50px 6%;
+  }
+
+  .hero-image {
+    height: 60vh;
+    order: 1;
+  }
+
+  .hero-content {
+    order: 2;
+  }
+
+  .hero h1 {
+    font-size: clamp(60px, 18vw, 100px);
+  }
+}
     /* GENERAL */
 
     section {
