@@ -63,19 +63,14 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
-    .gallery img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  display: block;
-}
 
-    .empty {
-      color: #777;
-      padding: 80px 20px;
-      border: 1px solid #292929;
-      text-align: center;
-      grid-column: 1 / -1;
+    .gallery img {
+      width: 100%;
+      height: 500px;
+      display: block;
+      object-fit: cover;
+      background: #181818;
+      cursor: pointer;
     }
 
     footer {
@@ -85,9 +80,56 @@
       border-top: 1px solid #292929;
     }
 
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .close-lightbox,
+    .prev,
+    .next {
+      position: absolute;
+      color: white;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
+    .close-lightbox {
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+    }
+
+    .prev {
+      left: 20px;
+      font-size: 50px;
+    }
+
+    .next {
+      right: 20px;
+      font-size: 50px;
+    }
+
     @media (max-width: 650px) {
       .gallery {
         grid-template-columns: 1fr;
+      }
+
+      .gallery img {
+        height: 400px;
       }
     }
   </style>
@@ -110,27 +152,10 @@
   <h1>Fashion</h1>
 
   <div class="gallery">
-    <a href="IMG_0420.jpg2.jpg" target="_blank">
-        <img src="IMG_0420.jpg2.jpg" alt="Fashion photography by Kiki Shutters">
-    </a>
-
-    <a href="IMG_0520.jpg" target="_blank">
-        <img src="IMG_0520.jpg" alt="Fashion photography by Kiki Shutters">
-    </a>
-
-    <a href="IMG_0385.jpg21.jpg" target="_blank">
-        <img src="IMG_0385.jpg21.jpg" alt="Fashion photography by Kiki Shutters">
-    </a>
-
-    <a href="IMG_0510.jpg" target="_blank">
-        <img src="IMG_0510.jpg" alt="Fashion photography by Kiki Shutters">
-    </a>
-</div>
-
-    <div class="empty">
-      Your fashion photographs will appear here.
-    </div>
-
+    <img src="IMG_0420.jpg2.jpg" alt="Fashion photography by Kiki Shutters" onclick="openLightbox(0)">
+    <img src="IMG_0520.jpg" alt="Fashion photography by Kiki Shutters" onclick="openLightbox(1)">
+    <img src="IMG_0385.jpg21.jpg" alt="Fashion photography by Kiki Shutters" onclick="openLightbox(2)">
+    <img src="IMG_0510.jpg" alt="Fashion photography by Kiki Shutters" onclick="openLightbox(3)">
   </div>
 
 </main>
@@ -138,6 +163,39 @@
 <footer>
   © 2026 Kiki Shutters · Ibadan, Nigeria
 </footer>
+
+<div class="lightbox" id="lightbox">
+  <span class="close-lightbox" onclick="closeLightbox()">×</span>
+  <span class="prev" onclick="changeImage(-1)">‹</span>
+  <img id="lightbox-img" src="">
+  <span class="next" onclick="changeImage(1)">›</span>
+</div>
+
+<script>
+const images = [
+  "IMG_0420.jpg2.jpg",
+  "IMG_0520.jpg",
+  "IMG_0385.jpg21.jpg",
+  "IMG_0510.jpg"
+];
+
+let currentImage = 0;
+
+function openLightbox(index) {
+  currentImage = index;
+  document.getElementById("lightbox-img").src = images[currentImage];
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+
+function changeImage(direction) {
+  currentImage = (currentImage + direction + images.length) % images.length;
+  document.getElementById("lightbox-img").src = images[currentImage];
+}
+</script>
 
 </body>
 </html>
