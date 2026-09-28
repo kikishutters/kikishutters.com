@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Kiki Shutters | Photographer & Retoucher in Ibadan</title>
+  <title>Kiki Shutters | Photographer & Retoucher</title>
 
-  <meta name="description" content="Kiki Shutters — photographer and retoucher based in Ibadan, Nigeria. Portrait, fashion, beauty, editorial and event photography.">
+  <meta
+    name="description"
+    content="Kiki Shutters — Photographer and retoucher based in Ibadan, creating clean and expressive imagery across portraits, fashion, beauty and editorial work."
+  >
 
   <style>
 
@@ -25,11 +28,15 @@
     }
 
     body {
+      font-family: Arial, Helvetica, sans-serif;
       background: #0b0b0b;
-      color: #f3f0ea;
-      font-family: Arial, sans-serif;
+      color: #f5f5f5;
       line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
     }
 
     a {
@@ -47,44 +54,140 @@
     ========================= */
 
     header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
+      width: 100%;
+      padding: 18px 6%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      padding: 18px 6%;
-
-      background: rgba(11, 11, 11, 0.92);
-      backdrop-filter: blur(12px);
-
-      border-bottom: 1px solid #252525;
+      background: #0b0b0b;
+      border-bottom: 1px solid #1d1d1d;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .logo-img {
-      width: 50px;
+      width: 70px;
       height: auto;
       display: block;
     }
 
-    nav {
+    /* Hamburger */
+
+    .menu-toggle {
+      width: 42px;
+      height: 42px;
+      border: 1px solid #444;
+      background: transparent;
       display: flex;
-      gap: 32px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1100;
     }
 
-    nav a {
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #aaa;
-
-      transition: color 0.3s ease;
+    .menu-toggle span {
+      width: 18px;
+      height: 1px;
+      background: #fff;
+      display: block;
+      transition: all 0.3s ease;
     }
 
-    nav a:hover {
-      color: #fff;
+    .menu-toggle:hover {
+      border-color: #fff;
+    }
+
+    /* Hamburger animation */
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+
+    /* =========================
+       FULL MENU
+    ========================= */
+
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 8, 8, 0.98);
+      z-index: 1050;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+    }
+
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .menu-content {
+      text-align: center;
+    }
+
+    .menu-content a {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 7vw, 75px);
+      font-weight: 400;
+      margin: 14px 0;
+      color: #eee;
+
+      opacity: 0;
+      transform: translateY(20px);
+
+      transition:
+        color 0.3s ease,
+        opacity 0.4s ease,
+        transform 0.4s ease;
+    }
+
+    .menu-overlay.active .menu-content a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .menu-overlay.active .menu-content a:nth-child(1) {
+      transition-delay: 0.08s;
+    }
+
+    .menu-overlay.active .menu-content a:nth-child(2) {
+      transition-delay: 0.14s;
+    }
+
+    .menu-overlay.active .menu-content a:nth-child(3) {
+      transition-delay: 0.20s;
+    }
+
+    .menu-overlay.active .menu-content a:nth-child(4) {
+      transition-delay: 0.26s;
+    }
+
+    .menu-content a:hover {
+      color: #999;
     }
 
 
@@ -93,146 +196,126 @@
     ========================= */
 
     .hero {
-      min-height: calc(100vh - 80px);
-
+      min-height: calc(100vh - 107px);
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-
       gap: 7%;
       align-items: center;
 
-      padding: 6% 8%;
+      padding: 70px 8%;
 
       background:
-        radial-gradient(circle at 80% 20%, #1a1a1a 0%, transparent 35%),
+        radial-gradient(
+          circle at 80% 20%,
+          #1a1a1a 0%,
+          transparent 35%
+        ),
         #0b0b0b;
     }
 
     .hero-image {
-      height: 76vh;
-      min-height: 520px;
-
+      width: 100%;
+      max-height: 78vh;
       overflow: hidden;
-
       animation: heroImage 1.2s ease both;
     }
 
     .hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  transition: transform 1s ease;
-}
+      width: 100%;
+      height: auto;
+      max-height: 78vh;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      transition: transform 1s ease;
+    }
+
     .hero-image:hover img {
-      transform: scale(1.025);
+      transform: scale(1.02);
     }
 
     .hero-content {
-      max-width: 560px;
-
-      animation: heroText 1s ease 0.15s both;
+      animation: heroText 1s ease both;
     }
 
-    .small-text {
-      color: #999;
-
-      font-size: 11px;
-      letter-spacing: 3px;
+    .hero-kicker {
+      font-size: 12px;
+      letter-spacing: 4px;
       text-transform: uppercase;
-
-      margin-bottom: 28px;
-    }
-
-    .hero h1 {
-      font-family: Georgia, "Times New Roman", serif;
-
-      font-size: clamp(65px, 9vw, 135px);
-
-      font-weight: normal;
-
-      line-height: 0.82;
-
-      letter-spacing: -6px;
-
-      color: #f3f0ea;
-    }
-
-    .hero p {
-      max-width: 480px;
-
-      margin-top: 38px;
-
       color: #999;
+      margin-bottom: 22px;
+    }
 
-      font-size: 16px;
+    .hero-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(58px, 8vw, 120px);
+      line-height: 0.88;
+      letter-spacing: -4px;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
 
-      line-height: 1.8;
+    .hero-title span {
+      display: block;
+      font-style: italic;
+      color: #bcbcbc;
+    }
+
+    .hero-text {
+      max-width: 430px;
+      color: #aaa;
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 35px;
     }
 
     .hero-button {
       display: inline-block;
-
-      margin-top: 35px;
-
-      padding: 15px 28px;
-
-      border: 1px solid #ddd;
-
-      font-size: 11px;
-
+      padding: 14px 27px;
+      border: 1px solid #777;
+      font-size: 12px;
       letter-spacing: 2px;
       text-transform: uppercase;
-
-      transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        transform 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .hero-button:hover {
-      background: #f3f0ea;
-      color: #111;
-
-      transform: translateY(-3px);
+      background: #fff;
+      color: #000;
+      border-color: #fff;
     }
 
 
     /* =========================
-       GENERAL SECTION
+       GENERAL SECTIONS
     ========================= */
 
     section {
-      padding: 120px 7%;
+      padding: 110px 8%;
+    }
+
+    .section-heading {
+      margin-bottom: 50px;
     }
 
     .section-label {
-      color: #777;
-
-      font-size: 10px;
-
+      font-size: 11px;
       letter-spacing: 3px;
-
       text-transform: uppercase;
-
-      margin-bottom: 16px;
+      color: #888;
+      margin-bottom: 12px;
     }
 
     .section-title {
       font-family: Georgia, "Times New Roman", serif;
-
-      font-size: clamp(45px, 7vw, 90px);
-
-      font-weight: normal;
-
-      line-height: 0.95;
-
-      margin-bottom: 55px;
+      font-size: clamp(38px, 5vw, 68px);
+      font-weight: 400;
+      line-height: 1;
     }
 
 
     /* =========================
-       FEATURED PHOTOGRAPHY
+       FEATURED WORK
     ========================= */
 
     .featured {
@@ -241,190 +324,138 @@
 
     .featured-grid {
       display: grid;
-
       grid-template-columns: 1.2fr 0.8fr;
-
-      gap: 12px;
+      gap: 25px;
     }
 
-    .featured-main {
-      height: 680px;
-
-      overflow: hidden;
-
-      position: relative;
-    }
-
-    .featured-side {
+    .featured-column {
       display: grid;
-
-      grid-template-rows: 1fr 1fr;
-
-      gap: 12px;
+      gap: 25px;
     }
 
-    .featured-card {
-      height: 334px;
-
-      overflow: hidden;
-
+    .featured-item {
       position: relative;
-
-      background: #181818;
+      overflow: hidden;
+      background: #191919;
     }
 
-    .featured-main img,
-    .featured-card img {
+    .featured-item img {
       width: 100%;
       height: 100%;
-
+      min-height: 330px;
       object-fit: cover;
-
       display: block;
-
       transition: transform 0.7s ease;
     }
 
-    .featured-main:hover img,
-    .featured-card:hover img {
-      transform: scale(1.035);
+    .featured-item:hover img {
+      transform: scale(1.04);
     }
 
-    .image-caption {
+    .featured-large img {
+      min-height: 680px;
+    }
+
+    .featured-caption {
       position: absolute;
+      left: 22px;
+      bottom: 20px;
 
-      left: 25px;
-      bottom: 22px;
-
-      font-size: 10px;
-
+      font-size: 11px;
       letter-spacing: 2px;
-
       text-transform: uppercase;
 
-      color: white;
-
-      background: rgba(0, 0, 0, 0.55);
-
-      padding: 8px 12px;
+      text-shadow: 0 2px 10px #000;
     }
 
 
     /* =========================
-       PORTFOLIO CATEGORIES
+       PORTFOLIO
     ========================= */
 
     .portfolio-grid {
       display: grid;
-
       grid-template-columns: repeat(3, 1fr);
-
-      gap: 12px;
+      gap: 20px;
     }
 
     .portfolio-card {
-      height: 430px;
-
       position: relative;
-
+      height: 420px;
       overflow: hidden;
-
       background: #171717;
     }
 
     .portfolio-card img {
       width: 100%;
       height: 100%;
-
       object-fit: cover;
-
       display: block;
-
-      filter: brightness(0.72);
-
-      transition:
-        transform 0.7s ease,
-        filter 0.5s ease;
+      transition: transform 0.7s ease;
     }
 
     .portfolio-card:hover img {
       transform: scale(1.05);
-
-      filter: brightness(0.5);
     }
 
     .portfolio-overlay {
       position: absolute;
-
       inset: 0;
 
       display: flex;
-
-      flex-direction: column;
-
-      justify-content: flex-end;
+      align-items: flex-end;
 
       padding: 28px;
 
-      background: linear-gradient(
-        transparent 45%,
-        rgba(0,0,0,0.8)
-      );
-    }
-
-    .portfolio-overlay span {
-      color: #aaa;
-
-      font-size: 10px;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-
-      margin-bottom: 6px;
+      background:
+        linear-gradient(
+          to top,
+          rgba(0,0,0,0.8),
+          transparent 60%
+        );
     }
 
     .portfolio-overlay h3 {
-      font-family: Georgia, serif;
-
-      font-size: 32px;
-
-      font-weight: normal;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      font-weight: 400;
     }
 
 
     /* =========================
-       ABOUT
+       ABOUT KIKI
     ========================= */
 
     .about {
-      background: #0b0b0b;
+      background: #111;
     }
 
-    .about-inner {
-      max-width: 850px;
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 10%;
+      align-items: start;
     }
+
+    .about-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(36px, 4vw, 55px);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    /* This is the bio */
 
     .about-text {
-      font-family: Georgia, "Times New Roman", serif;
+      max-width: 650px;
+      color: #aaa;
 
-      font-size: clamp(27px, 4vw, 48px);
-
-      line-height: 1.25;
-
-      color: #dedbd5;
+      font-size: 14px;
+      line-height: 1.9;
     }
 
-    .about-small {
-      max-width: 650px;
-
-      margin-top: 30px;
-
-      color: #888;
-
-      font-size: 15px;
-
-      line-height: 1.8;
+    .about-text p + p {
+      margin-top: 22px;
     }
 
 
@@ -432,116 +463,144 @@
        SERVICES
     ========================= */
 
-    .services {
-      background: #111;
-    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
 
-    .services-list {
-      border-top: 1px solid #303030;
+      gap: 1px;
+
+      background: #292929;
+      border: 1px solid #292929;
     }
 
     .service {
-      display: flex;
+      background: #0b0b0b;
 
-      justify-content: space-between;
+      padding: 40px 30px;
 
-      align-items: center;
+      min-height: 220px;
 
-      padding: 28px 0;
-
-      border-bottom: 1px solid #303030;
-
-      transition: padding 0.3s ease;
+      transition: background 0.3s ease;
     }
 
     .service:hover {
-      padding-left: 12px;
-      padding-right: 12px;
+      background: #151515;
     }
 
-    .service-name {
-      font-family: Georgia, serif;
-
-      font-size: 28px;
-
-      font-weight: normal;
-    }
-
-    .service-description {
+    .service-number {
+      font-size: 11px;
       color: #777;
+      letter-spacing: 2px;
+      margin-bottom: 35px;
+    }
 
-      font-size: 12px;
+    .service h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 14px;
+    }
 
-      letter-spacing: 1px;
-
-      text-transform: uppercase;
+    .service p {
+      color: #888;
+      font-size: 14px;
+      line-height: 1.8;
     }
 
 
     /* =========================
-       CONTACT / BOOKING
+       CONTACT
     ========================= */
 
     .contact {
-      padding-top: 150px;
-      padding-bottom: 150px;
-
       text-align: center;
-
-      background:
-        radial-gradient(
-          circle at center,
-          #1a1a1a 0%,
-          #0b0b0b 55%
-        );
+      background: #151515;
+      padding: 130px 8%;
     }
 
-    .contact h2 {
-      font-family: Georgia, serif;
-
-      font-size: clamp(50px, 9vw, 110px);
-
-      font-weight: normal;
-
-      line-height: 0.95;
+    .contact-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(45px, 7vw, 90px);
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 25px;
     }
 
-    .contact p {
+    .contact-text {
+      color: #999;
       max-width: 500px;
-
-      margin: 30px auto;
-
-      color: #888;
-
-      font-size: 15px;
+      margin: 0 auto 35px;
+      line-height: 1.8;
     }
+
+    /* BOOK A SHOOT */
 
     .contact-button {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
 
-      margin-top: 15px;
+      padding: 16px 32px;
 
-      padding: 17px 35px;
-
-      background: #f3f0ea;
-
-      color: #111;
+      background: #fff;
+      color: #000;
 
       font-size: 11px;
-
       letter-spacing: 2px;
-
       text-transform: uppercase;
 
       transition:
-        transform 0.3s ease,
-        background 0.3s ease;
+        background 0.3s ease,
+        transform 0.3s ease;
     }
 
     .contact-button:hover {
-      transform: translateY(-3px);
+      background: #ccc;
+      transform: translateY(-2px);
+    }
 
-      background: white;
+
+    /* =========================
+       SOCIAL ICONS
+    ========================= */
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+
+      margin-top: 35px;
+    }
+
+    .social-link {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid #444;
+
+      color: #ddd;
+
+      transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .social-link:hover {
+      color: #fff;
+      border-color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .social-link svg {
+      width: 19px;
+      height: 19px;
+      fill: currentColor;
     }
 
 
@@ -550,31 +609,18 @@
     ========================= */
 
     footer {
+      padding: 35px 8%;
+
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
 
-      padding: 30px 7%;
+      border-top: 1px solid #222;
 
-      border-top: 1px solid #292929;
-
-      color: #666;
+      color: #777;
 
       font-size: 11px;
-
       letter-spacing: 1px;
-    }
-
-    .footer-social {
-      color: #888;
-
-      transition: color 0.3s ease;
-    }
-
-    .footer-social:hover {
-      color: white;
     }
 
 
@@ -586,12 +632,12 @@
 
       from {
         opacity: 0;
-        transform: translateX(-25px);
+        transform: translateY(25px);
       }
 
       to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
       }
 
     }
@@ -612,107 +658,229 @@
 
 
     /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 1000px) {
+
+      .hero {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      .hero-title {
+        font-size: clamp(50px, 7vw, 80px);
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        gap: 50px;
+      }
+
+    }
+
+
+    /* =========================
        MOBILE
     ========================= */
 
-    @media (max-width: 850px) {
+    @media (max-width: 700px) {
 
       header {
-        padding: 16px 5%;
+        padding: 15px 6%;
       }
 
       .logo-img {
-        width: 62px;
+        width: 60px;
       }
 
-      nav {
-        gap: 15px;
+      .menu-toggle {
+        width: 40px;
+        height: 40px;
       }
 
-      nav a {
-        font-size: 9px;
-        letter-spacing: 1px;
+
+      /* MENU */
+
+      .menu-content a {
+        font-size: 45px;
+        margin: 12px 0;
       }
 
+
+      /* HERO */
 
       .hero {
-        grid-template-columns: 1fr;
-
-        gap: 45px;
-
-        padding: 40px 6% 80px;
+        display: flex;
+        flex-direction: column;
 
         min-height: auto;
+
+        padding: 35px 6% 75px;
+
+        gap: 38px;
       }
 
       .hero-image {
+        width: 100%;
+        max-height: none;
         order: 1;
+      }
 
-        height: 65vh;
+      .hero-image img {
+        width: 100%;
+        height: auto;
+        max-height: none;
 
-        min-height: 450px;
+        object-fit: contain;
       }
 
       .hero-content {
         order: 2;
       }
 
-      .hero h1 {
-        font-size: clamp(65px, 20vw, 105px);
-
-        letter-spacing: -5px;
+      .hero-kicker {
+        font-size: 10px;
+        letter-spacing: 3px;
+        margin-bottom: 18px;
       }
 
+      .hero-title {
+        font-size: clamp(55px, 17vw, 82px);
+        letter-spacing: -3px;
+        margin-bottom: 25px;
+      }
+
+      .hero-text {
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .hero-button {
+        width: 100%;
+        text-align: center;
+      }
+
+
+      /* SECTIONS */
 
       section {
-        padding: 85px 6%;
+        padding: 75px 6%;
       }
 
+      .section-heading {
+        margin-bottom: 35px;
+      }
+
+      .section-title {
+        font-size: 43px;
+      }
+
+
+      /* FEATURED */
 
       .featured-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
       }
 
-      .featured-main {
-        height: 500px;
+      .featured-column {
+        gap: 15px;
       }
 
-      .featured-side {
-        grid-template-columns: 1fr 1fr;
+      .featured-item img,
+      .featured-large img {
+        min-height: 0;
+        height: auto;
 
-        grid-template-rows: 260px;
+        aspect-ratio: 4 / 5;
+
+        object-fit: cover;
       }
 
-      .featured-card {
-        height: 260px;
-      }
 
+      /* PORTFOLIO */
 
       .portfolio-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        gap: 15px;
       }
 
       .portfolio-card {
-        height: 330px;
+        height: 430px;
       }
 
+
+      /* ABOUT */
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about-title {
+        font-size: 38px;
+      }
+
+      .about-text {
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+
+      /* SERVICES */
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
 
       .service {
-        display: block;
+        min-height: 190px;
+        padding: 30px 25px;
       }
 
-      .service-description {
-        margin-top: 6px;
+      .service-number {
+        margin-bottom: 25px;
       }
 
+
+      /* CONTACT */
 
       .contact {
-        padding-top: 100px;
-        padding-bottom: 100px;
+        padding: 90px 6%;
+      }
+
+      .contact-title {
+        font-size: 55px;
+      }
+
+      .contact-text {
+        font-size: 14px;
+      }
+
+      .contact-button {
+        width: 100%;
       }
 
 
+      /* SOCIAL */
+
+      .social-links {
+        margin-top: 30px;
+      }
+
+
+      /* FOOTER */
+
       footer {
+        padding: 25px 6%;
+
         flex-direction: column;
 
         gap: 12px;
@@ -723,48 +891,22 @@
     }
 
 
-    @media (max-width: 550px) {
+    /* =========================
+       SMALL PHONES
+    ========================= */
 
-      nav {
-        gap: 10px;
+    @media (max-width: 400px) {
+
+      .menu-content a {
+        font-size: 40px;
       }
 
-      nav a {
-        font-size: 8px;
-      }
-
-      .hero-image {
-        height: 58vh;
-        min-height: 400px;
-      }
-
-      .hero p {
-        font-size: 14px;
-      }
-
-      .featured-main {
-        height: 450px;
-      }
-
-      .featured-side {
-        grid-template-columns: 1fr;
-        grid-template-rows: 300px 300px;
-      }
-
-      .featured-card {
-        height: 300px;
-      }
-
-      .portfolio-grid {
-        grid-template-columns: 1fr;
+      .hero-title {
+        font-size: 54px;
       }
 
       .portfolio-card {
-        height: 430px;
-      }
-
-      .section-title {
-        margin-bottom: 35px;
+        height: 380px;
       }
 
     }
@@ -783,416 +925,585 @@
   <header>
 
     <a href="index.html">
+
       <img
         src="Group%20of%204%20Objects.png"
         alt="Kiki Shutters"
         class="logo-img"
       >
+
     </a>
 
-    <nav>
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
+
+    <!-- Hamburger button -->
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
 
   </header>
 
 
-
   <!-- =========================
-       HERO
+       MENU
   ========================= -->
 
-  <section class="hero">
+  <div class="menu-overlay" id="menuOverlay">
 
-    <div class="hero-image">
+    <nav class="menu-content">
 
-      <img
-        src="IMG_4798.jpg"
-        alt="Photography by Kiki Shutters"
-      >
+      <a href="#work">Work</a>
 
-    </div>
+      <a href="#about">About</a>
 
+      <a href="#services">Services</a>
 
-    <div class="hero-content">
+      <a href="#contact">Contact</a>
 
-      <div class="small-text">
-        Photographer & Retoucher · Ibadan, Nigeria
-      </div>
+    </nav>
 
-      <h1>
-        KIKI<br>
-        SHUTTERS
-      </h1>
-
-      <p>
-        Clean, expressive and refined photography
-        created around people, style, beauty and story.
-      </p>
-
-      <a href="#work" class="hero-button">
-        View My Work
-      </a>
-
-    </div>
-
-  </section>
-
+  </div>
 
 
   <!-- =========================
-       FEATURED PHOTOGRAPHY
+       MAIN
   ========================= -->
 
-  <section class="featured" id="work">
-
-    <div class="section-label">
-      Selected Work
-    </div>
-
-    <h2 class="section-title">
-      Featured<br>
-      Photography
-    </h2>
+  <main>
 
 
-    <div class="featured-grid">
+    <!-- HERO -->
 
-      <a href="fashion.html" class="featured-main">
-
-        <img
-          src="IMG_0420.jpg2.jpg"
-          alt="Fashion photography by Kiki Shutters"
-        >
-
-        <div class="image-caption">
-          Fashion
-        </div>
-
-      </a>
+    <section class="hero">
 
 
-      <div class="featured-side">
-
-        <a href="portraits.html" class="featured-card">
-
-          <img
-            src="IMG_8610.jpg"
-            alt="Portrait photography by Kiki Shutters"
-          >
-
-          <div class="image-caption">
-            Portraits
-          </div>
-
-        </a>
-
-
-        <a href="fashion.html" class="featured-card">
-
-          <img
-            src="IMG_0520.jpg"
-            alt="Editorial fashion photography by Kiki Shutters"
-          >
-
-          <div class="image-caption">
-            Editorial
-          </div>
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       PORTFOLIO CATEGORIES
-  ========================= -->
-
-  <section class="portfolio">
-
-    <div class="section-label">
-      Explore
-    </div>
-
-    <h2 class="section-title">
-      Portfolio
-    </h2>
-
-
-    <div class="portfolio-grid">
-
-
-      <a href="portraits.html" class="portfolio-card">
-
-        <img
-          src="IMG_8521.jpg"
-          alt="Portrait photography"
-        >
-
-        <div class="portfolio-overlay">
-
-          <span>01</span>
-
-          <h3>Portraits</h3>
-
-        </div>
-
-      </a>
-
-
-      <a href="fashion.html" class="portfolio-card">
-
-        <img
-          src="IMG_0385.jpg21.jpg"
-          alt="Fashion photography"
-        >
-
-        <div class="portfolio-overlay">
-
-          <span>02</span>
-
-          <h3>Fashion</h3>
-
-        </div>
-
-      </a>
-
-
-      <a href="beauty.html" class="portfolio-card">
+      <div class="hero-image">
 
         <img
           src="IMG_4798.jpg"
-          alt="Beauty photography"
+          alt="Photography by Kiki Shutters"
         >
 
-        <div class="portfolio-overlay">
+      </div>
 
-          <span>03</span>
 
-          <h3>Beauty</h3>
+      <div class="hero-content">
 
+        <div class="hero-kicker">
+          Photographer & Retoucher
         </div>
 
-      </a>
+
+        <h1 class="hero-title">
+
+          KIKI
+
+          <span>
+            SHUTTERS
+          </span>
+
+        </h1>
 
 
-      <a href="editorial.html" class="portfolio-card">
+        <p class="hero-text">
 
-        <img
-          src="IMG_0520.jpg"
-          alt="Editorial photography"
+          Photography and retouching focused on clean,
+          expressive imagery with an editorial touch.
+          Based in Ibadan, Nigeria.
+
+        </p>
+
+
+        <a
+          href="#work"
+          class="hero-button"
         >
-
-        <div class="portfolio-overlay">
-
-          <span>04</span>
-
-          <h3>Editorial</h3>
-
-        </div>
-
-      </a>
-
-
-      <a href="events.html" class="portfolio-card">
-
-        <img
-          src="IMG_8569.jpg"
-          alt="Event photography"
-        >
-
-        <div class="portfolio-overlay">
-
-          <span>05</span>
-
-          <h3>Events</h3>
-
-        </div>
-
-      </a>
-
-
-      <a href="retouching.html" class="portfolio-card">
-
-        <img
-          src="IMG_8511-Recovered.jpg"
-          alt="Photo retouching by Kiki Shutters"
-        >
-
-        <div class="portfolio-overlay">
-
-          <span>06</span>
-
-          <h3>Retouching</h3>
-
-        </div>
-
-      </a>
-
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       ABOUT
-  ========================= -->
-
-  <section class="about" id="about">
-
-    <div class="section-label">
-      About Kiki
-    </div>
-
-    <div class="about-inner">
-
-      <p class="about-text">
-        I’m a photographer and retoucher based in Ibadan,
-        creating clean, expressive imagery with a focus
-        on portraits, fashion, beauty and editorial work.
-      </p>
-
-      <p class="about-small">
-        My approach is simple — strong images, thoughtful
-        composition and polished retouching without losing
-        what makes the original photograph feel real.
-      </p>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       SERVICES
-  ========================= -->
-
-  <section class="services" id="services">
-
-    <div class="section-label">
-      What I Do
-    </div>
-
-    <h2 class="section-title">
-      Services
-    </h2>
-
-
-    <div class="services-list">
-
-
-      <div class="service">
-
-        <div class="service-name">
-          Portrait Photography
-        </div>
-
-        <div class="service-description">
-          Studio · Outdoor · Personal
-        </div>
+          Explore Work
+        </a>
 
       </div>
 
-
-      <div class="service">
-
-        <div class="service-name">
-          Fashion & Editorial
-        </div>
-
-        <div class="service-description">
-          Creative · Campaign · Editorial
-        </div>
-
-      </div>
+    </section>
 
 
-      <div class="service">
+    <!-- =========================
+         FEATURED WORK
+    ========================= -->
 
-        <div class="service-name">
-          Beauty Photography
-        </div>
-
-        <div class="service-description">
-          Beauty · Makeup · Hair
-        </div>
-
-      </div>
-
-
-      <div class="service">
-
-        <div class="service-name">
-          Event Photography
-        </div>
-
-        <div class="service-description">
-          Events · Celebrations · Moments
-        </div>
-
-      </div>
-
-
-      <div class="service">
-
-        <div class="service-name">
-          Photo Retouching
-        </div>
-
-        <div class="service-description">
-          Skin · Colour · Editorial Retouching
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       CONTACT
-  ========================= -->
-
-  <section class="contact" id="contact">
-
-    <div class="section-label">
-      Let's Work Together
-    </div>
-
-    <h2>
-      Have a<br>
-      project?
-    </h2>
-
-    <p>
-      For bookings, creative projects, collaborations
-      and photography enquiries, get in touch.
-    </p>
-
-    <a
-      href="https://wa.me/2349113599816"
-      class="contact-button"
-      target="_blank"
+    <section
+      class="featured"
+      id="work"
     >
-      Book a Shoot
-    </a>
 
-  </section>
+      <div class="section-heading">
 
+        <div class="section-label">
+          Selected Work
+        </div>
+
+        <h2 class="section-title">
+          Featured Photography
+        </h2>
+
+      </div>
+
+
+      <div class="featured-grid">
+
+
+        <a
+          href="fashion.html"
+          class="featured-item featured-large"
+        >
+
+          <img
+            src="IMG_0420.jpg2.jpg"
+            alt="Fashion photography by Kiki Shutters"
+          >
+
+          <div class="featured-caption">
+            Fashion
+          </div>
+
+        </a>
+
+
+        <div class="featured-column">
+
+
+          <a
+            href="portraits.html"
+            class="featured-item"
+          >
+
+            <img
+              src="IMG_8610.jpg"
+              alt="Portrait photography by Kiki Shutters"
+            >
+
+            <div class="featured-caption">
+              Portraits
+            </div>
+
+          </a>
+
+
+          <a
+            href="editorial.html"
+            class="featured-item"
+          >
+
+            <img
+              src="IMG_0520.jpg"
+              alt="Editorial photography by Kiki Shutters"
+            >
+
+            <div class="featured-caption">
+              Editorial
+            </div>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PORTFOLIO
+    ========================= -->
+
+    <section>
+
+
+      <div class="section-heading">
+
+        <div class="section-label">
+          Portfolio
+        </div>
+
+        <h2 class="section-title">
+          Explore My Work
+        </h2>
+
+      </div>
+
+
+      <div class="portfolio-grid">
+
+
+        <a
+          href="portraits.html"
+          class="portfolio-card"
+        >
+
+          <img
+            src="IMG_8521.jpg"
+            alt="Portrait photography"
+          >
+
+          <div class="portfolio-overlay">
+            <h3>Portraits</h3>
+          </div>
+
+        </a>
+
+
+        <a
+          href="fashion.html"
+          class="portfolio-card"
+        >
+
+          <img
+            src="IMG_0385.jpg21.jpg"
+            alt="Fashion photography"
+          >
+
+          <div class="portfolio-overlay">
+            <h3>Fashion</h3>
+          </div>
+
+        </a>
+
+
+        <a
+          href="beauty.html"
+          class="portfolio-card"
+        >
+
+          <img
+            src="IMG_4798.jpg"
+            alt="Beauty photography"
+          >
+
+          <div class="portfolio-overlay">
+            <h3>Beauty</h3>
+          </div>
+
+        </a>
+
+
+        <a
+          href="editorial.html"
+          class="portfolio-card"
+        >
+
+          <img
+            src="IMG_0520.jpg"
+            alt="Editorial photography"
+          >
+
+          <div class="portfolio-overlay">
+            <h3>Editorial</h3>
+          </div>
+
+        </a>
+
+
+        <a
+          href="events.html"
+          class="portfolio-card"
+        >
+
+          <img
+            src="IMG_8569.jpg"
+            alt="Event photography"
+          >
+
+          <div class="portfolio-overlay">
+            <h3>Events</h3>
+          </div>
+
+        </a>
+
+
+        <a
+          href="retouching.html"
+          class="portfolio-card"
+        >
+
+          <img
+            src="IMG_8511-Recovered.jpg"
+            alt="Photo retouching by Kiki Shutters"
+          >
+
+          <div class="portfolio-overlay">
+            <h3>Retouching</h3>
+          </div>
+
+        </a>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT KIKI
+    ========================= -->
+
+    <section
+      class="about"
+      id="about"
+    >
+
+
+      <div class="about-grid">
+
+
+        <div>
+
+          <div class="section-label">
+            About Kiki
+          </div>
+
+          <h2 class="about-title">
+
+            Behind
+            <br>
+            The Lens
+
+          </h2>
+
+        </div>
+
+
+        <div class="about-text">
+
+
+          <p>
+
+            I’m Kiki, a photographer and retoucher based in
+            Ibadan, creating clean, expressive imagery with a
+            focus on portraits, fashion, beauty and editorial work.
+
+          </p>
+
+
+          <p>
+
+            I’m passionate about bringing ideas to life through
+            thoughtful photography and detailed retouching.
+
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICES
+    ========================= -->
+
+    <section
+      id="services"
+    >
+
+
+      <div class="section-heading">
+
+        <div class="section-label">
+          Services
+        </div>
+
+        <h2 class="section-title">
+          What I Do
+        </h2>
+
+      </div>
+
+
+      <div class="services-grid">
+
+
+        <div class="service">
+
+          <div class="service-number">
+            01
+          </div>
+
+          <h3>
+            Photography
+          </h3>
+
+          <p>
+
+            Portraits, fashion, beauty, editorial and
+            event photography created around your vision.
+
+          </p>
+
+        </div>
+
+
+        <div class="service">
+
+          <div class="service-number">
+            02
+          </div>
+
+          <h3>
+            Photo Retouching
+          </h3>
+
+          <p>
+
+            Professional Photoshop editing and retouching
+            with attention to skin, tones, details and
+            overall image quality.
+
+          </p>
+
+        </div>
+
+
+        <div class="service">
+
+          <div class="service-number">
+            03
+          </div>
+
+          <h3>
+            Creative Shoots
+          </h3>
+
+          <p>
+
+            Editorial and creative shoots for individuals,
+            brands, models and visual campaigns.
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT / BOOK A SHOOT
+    ========================= -->
+
+    <section
+      class="contact"
+      id="contact"
+    >
+
+
+      <div class="section-label">
+        Let's Work Together
+      </div>
+
+
+      <h2 class="contact-title">
+        Have a vision?
+      </h2>
+
+
+      <p class="contact-text">
+
+        For bookings, collaborations, photography or
+        retouching enquiries, get in touch and let's
+        create something intentional.
+
+      </p>
+
+
+      <!--
+        REPLACE YOUR_WHATSAPP_NUMBER
+        WITH YOUR WHATSAPP NUMBER.
+
+        Example format:
+        https://wa.me/234XXXXXXXXXX
+      -->
+
+      <a
+        href="https://wa.me/YOUR_WHATSAPP_NUMBER"
+        class="contact-button"
+        target="_blank"
+      >
+        Book a Shoot
+      </a>
+
+
+      <!-- SOCIAL ICONS -->
+
+      <div class="social-links">
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+          href="https://www.instagram.com/kikishutters/"
+          class="social-link"
+          target="_blank"
+          aria-label="Instagram"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+
+            <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5zm8.75 2.75a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/>
+
+          </svg>
+
+        </a>
+
+
+        <!--
+          TIKTOK
+
+          Replace YOUR_TIKTOK_USERNAME
+          with your actual TikTok username.
+        -->
+
+        <a
+          href="https://www.tiktok.com/@YOUR_TIKTOK_USERNAME"
+          class="social-link"
+          target="_blank"
+          aria-label="TikTok"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+
+            <path d="M16.6 2c.2 1.8 1.2 3.2 3 4v3.1c-1.3-.1-2.5-.5-3.6-1.2v7.3c0 4.1-2.9 6.8-6.7 6.8-3.7 0-6.3-2.6-6.3-6.1 0-3.7 2.9-6.2 6.6-6.2.4 0 .8 0 1.2.1v3.2c-.4-.1-.8-.2-1.2-.2-1.7 0-3.1 1.1-3.1 3 0 1.7 1.2 2.9 2.9 2.9 1.8 0 3.4-1.2 3.4-3.7V2h3.8z"/>
+
+          </svg>
+
+        </a>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
 
 
   <!-- =========================
@@ -1202,19 +1513,94 @@
   <footer>
 
     <div>
-      © 2026 Kiki Shutters · Ibadan, Nigeria
+      © 2026 Kiki Shutters
     </div>
 
-    <a
-      href="https://instagram.com/kikishutters"
-      target="_blank"
-      class="footer-social"
-    >
-      Instagram · @Kikishutters
-    </a>
+    <div>
+      Photographer & Retoucher
+    </div>
 
   </footer>
 
+
+  <!-- =========================
+       JAVASCRIPT
+    ========================= -->
+
+  <script>
+
+    const menuToggle = document.getElementById("menuToggle");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const menuLinks = document.querySelectorAll(".menu-content a");
+
+
+    function openMenu() {
+
+      menuToggle.classList.add("active");
+
+      menuOverlay.classList.add("active");
+
+      document.body.classList.add("menu-open");
+
+      menuToggle.setAttribute("aria-expanded", "true");
+
+      menuToggle.setAttribute("aria-label", "Close menu");
+
+    }
+
+
+    function closeMenu() {
+
+      menuToggle.classList.remove("active");
+
+      menuOverlay.classList.remove("active");
+
+      document.body.classList.remove("menu-open");
+
+      menuToggle.setAttribute("aria-expanded", "false");
+
+      menuToggle.setAttribute("aria-label", "Open menu");
+
+    }
+
+
+    menuToggle.addEventListener("click", function() {
+
+      if (menuOverlay.classList.contains("active")) {
+
+        closeMenu();
+
+      } else {
+
+        openMenu();
+
+      }
+
+    });
+
+
+    menuLinks.forEach(function(link) {
+
+      link.addEventListener("click", function() {
+
+        closeMenu();
+
+      });
+
+    });
+
+
+    document.addEventListener("keydown", function(event) {
+
+      if (event.key === "Escape") {
+
+        closeMenu();
+
+      }
+
+    });
+
+  </script>
 
 </body>
 </html>
