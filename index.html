@@ -1255,54 +1255,49 @@
          ABOUT KIKI
     ========================= -->
 
-    <section
-      class="about"
-      id="about"
-    >
+    <section class="about-section" id="about">
 
+  <h2 class="about-title">About Kiki</h2>
 
-      <div class="about-grid">
+  <p class="about-text">
+    I’m Kiki, a photographer and retoucher based in Ibadan, creating clean,
+    expressive imagery with a focus on portraits, fashion, beauty and editorial
+    work. I’m passionate about bringing ideas to life through thoughtful
+    photography and detailed retouching.
+  </p>
 
+</section>
 
-        <div>
+<style>
+.about-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 6vw, 78px);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 35px;
+}
 
-          <div class="section-label">
-            About Kiki
-          </div>
+.about-text {
+  max-width: 760px;
+  color: #d0d0d0;
+  font-size: 18px;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
 
-          <h2 class="about-title">
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
 
-          </h2>
-
-        </div>
-
-
-        <div class="about-text">
-
-
-          <p>
-
-            I’m Kiki, a photographer and retoucher based in
-            Ibadan, creating clean, expressive imagery with a
-            focus on portraits, fashion, beauty and editorial work.
-
-          </p>
-
-
-          <p>
-
-            I’m passionate about bringing ideas to life through
-            thoughtful photography and detailed retouching.
-
-          </p>
-
-
-        </div>
-
-
-      </div>
-
-    </section>
+  .about-text {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+}
+</style>
 
 
     <!-- =========================
