@@ -6,6 +6,55 @@
   <title>Weddings | Kiki Shutters</title>
 
   <style>
+    .lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.96);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  color: white;
+  font-size: 38px;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 45px;
+  cursor: pointer;
+  padding: 20px;
+  z-index: 10001;
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
     * {
       margin: 0;
       padding: 0;
@@ -134,6 +183,74 @@
 <footer>
   © 2026 Kiki Shutters · Ibadan, Nigeria
 </footer>
+<div class="lightbox" id="lightbox">
 
+  <span class="lightbox-close" onclick="closeLightbox()">×</span>
+
+  <span class="lightbox-prev" onclick="previousImage()">‹</span>
+
+  <img id="lightboxImage" src="" alt="Wedding photography">
+
+  <span class="lightbox-next" onclick="nextImage()">›</span>
+
+</div>
+  <script>
+  const weddingImages = [
+    "IMG_8864.jpg",
+    "IMG_8889.jpg-2.jpg",
+    "IMG_8896.jpg2.jpg",
+    "IMG_8905.jpg",
+    "IMG_8995.jpg",
+    "IMG_9023.jpg",
+    "IMG_9046.jpg",
+    "IMG_9086.jpg",
+    "IMG_9100.jpg",
+    "IMG_9122.jpgre.jpg",
+    "IMG_9177.jpgre.jpg"
+  ];
+
+  let currentImage = 0;
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+
+  function openLightbox(index) {
+    currentImage = index;
+    lightboxImage.src = weddingImages[currentImage];
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  function nextImage() {
+    currentImage = (currentImage + 1) % weddingImages.length;
+    lightboxImage.src = weddingImages[currentImage];
+  }
+
+  function previousImage() {
+    currentImage =
+      (currentImage - 1 + weddingImages.length) % weddingImages.length;
+
+    lightboxImage.src = weddingImages[currentImage];
+  }
+
+  document.addEventListener("keydown", function(event) {
+    if (!lightbox.classList.contains("active")) return;
+
+    if (event.key === "ArrowRight") nextImage();
+    if (event.key === "ArrowLeft") previousImage();
+    if (event.key === "Escape") closeLightbox();
+  });
+
+  lightbox.addEventListener("click", function(event) {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+</script>
 </body>
 </html>
