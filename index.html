@@ -659,36 +659,59 @@
 
     }
 
+/* =========================
+   TABLET
+========================= */
 
-    /* =========================
-       TABLET
-    ========================= */
+@media (min-width: 701px) and (max-width: 1024px) {
 
-    @media (max-width: 1000px) {
+  .hero {
+    min-height: 80svh;
+  }
 
-      .hero {
-        grid-template-columns: 1fr 1fr;
-        gap: 35px;
+  .hero-bg {
+    object-position: 22% center;
+  }
 
-        padding-left: 6%;
-        padding-right: 6%;
-      }
+  .hero-content {
+    width: 50%;
+    max-width: 520px;
+    padding: 50px 6% 50px 0;
+  }
 
-      .hero-title {
-        font-size: clamp(50px, 7vw, 80px);
-      }
+  .hero-kicker {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+  }
 
-      .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+  .hero-title {
+    font-size: clamp(55px, 8vw, 82px);
+    letter-spacing: -3px;
+    line-height: 0.9;
+    margin-bottom: 25px;
+  }
 
-      .about-grid {
-        gap: 50px;
-      }
+  .hero-text {
+    max-width: 360px;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+  }
 
-    }
+  .hero-button {
+    width: auto;
+  }
 
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
+  .about-grid {
+    gap: 50px;
+  }
+
+}
     /* =========================
        MOBILE
     ========================= */
