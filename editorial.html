@@ -185,7 +185,104 @@
     }
   </style>
 </head>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
 
+  <span class="lightbox-close" onclick="closeLightbox()">×</span>
+
+  <span class="lightbox-prev" onclick="previousImage()">‹</span>
+
+  <img id="lightboxImage" src="" alt="Editorial photography">
+
+  <span class="lightbox-next" onclick="nextImage()">›</span>
+
+</div>
+
+<script>
+  const editorialImages = [
+    "IMG_2578.jpg",
+    "IMG_2579.jpg",
+    "IMG_2586.jpgcopy.jpg",
+    "IMG_2587.jpg"
+  ];
+
+  let currentImage = 0;
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+
+  function openLightbox(index) {
+    currentImage = index;
+    lightboxImage.src = editorialImages[currentImage];
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  function nextImage() {
+    currentImage = (currentImage + 1) % editorialImages.length;
+    lightboxImage.src = editorialImages[currentImage];
+  }
+
+  function previousImage() {
+    currentImage =
+      (currentImage - 1 + editorialImages.length) %
+      editorialImages.length;
+
+    lightboxImage.src = editorialImages[currentImage];
+  }
+
+  /* Keyboard controls */
+  document.addEventListener("keydown", function(event) {
+    if (!lightbox.classList.contains("active")) return;
+
+    if (event.key === "ArrowRight") {
+      nextImage();
+    }
+
+    if (event.key === "ArrowLeft") {
+      previousImage();
+    }
+
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+  });
+
+  /* Close when clicking outside the image */
+  lightbox.addEventListener("click", function(event) {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  /* MOBILE SWIPE */
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  lightbox.addEventListener("touchstart", function(event) {
+    touchStartX = event.changedTouches[0].screenX;
+  }, { passive: true });
+
+  lightbox.addEventListener("touchend", function(event) {
+    touchEndX = event.changedTouches[0].screenX;
+
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (Math.abs(swipeDistance) < 50) return;
+
+    if (swipeDistance < 0) {
+      nextImage();
+    } else {
+      previousImage();
+    }
+  }, { passive: true });
+</script>
+  
 <body>
 
 <header>
