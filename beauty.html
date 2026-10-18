@@ -95,6 +95,107 @@
     height: 500px;
   }
     }
+    /* MOBILE HEADER */
+@media (max-width: 700px) {
+  header {
+    padding: 18px 5%;
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 14px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+
+  .back {
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-align: right;
+    white-space: nowrap;
+  }
+}
+    
+/* BEAUTY LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.96);
+  align-items: center;
+  justify-content: center;
+  padding: 50px 60px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  z-index: 2;
+}
+
+.lightbox-close {
+  top: 15px;
+  right: 25px;
+  font-size: 38px;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 42px;
+  padding: 15px;
+}
+
+.lightbox-prev {
+  left: 10px;
+}
+
+.lightbox-next {
+  right: 10px;
+}
+
+@media (max-width: 700px) {
+  .lightbox {
+    padding: 45px 35px;
+  }
+
+  .lightbox img {
+    max-width: 100%;
+    max-height: 80vh;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 15px;
+  }
+
+  .lightbox-prev {
+    left: 0;
+  }
+
+  .lightbox-next {
+    right: 0;
+  }
+}
+
   </style>
 </head>
 
@@ -135,6 +236,76 @@
 <footer>
   © 2026 Kiki Shutters · Ibadan, Nigeria
 </footer>
+  
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <span class="lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
+  <img id="lightboxImage" src="" alt="Beauty photograph">
+  <span class="lightbox-next" onclick="changeImage(1)">&#10095;</span>
+</div>
+
+<script>
+const beautyImages = [
+  "IMG_5612.jpg",
+  "IMG_5619.jpg2.jpg",
+  "IMG_5623.jpg",
+  "IMG_5652.jpg",
+  "IMG_5657.jpg",
+  "IMG_5661.jpg"
+];
+
+let currentImage = 0;
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+
+function openLightbox(index) {
+  currentImage = index;
+  lightboxImage.src = beautyImages[currentImage];
+  lightbox.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function changeImage(direction) {
+  currentImage =
+    (currentImage + direction + beautyImages.length) %
+    beautyImages.length;
+
+  lightboxImage.src = beautyImages[currentImage];
+}
+
+document.addEventListener("keydown", function(event) {
+  if (!lightbox.classList.contains("active")) return;
+
+  if (event.key === "Escape") closeLightbox();
+  if (event.key === "ArrowRight") changeImage(1);
+  if (event.key === "ArrowLeft") changeImage(-1);
+});
+
+let touchStartX = 0;
+
+lightbox.addEventListener("touchstart", function(event) {
+  touchStartX = event.changedTouches[0].screenX;
+}, { passive: true });
+
+lightbox.addEventListener("touchend", function(event) {
+  const touchEndX = event.changedTouches[0].screenX;
+  const difference = touchEndX - touchStartX;
+
+  if (Math.abs(difference) > 50) {
+    changeImage(difference < 0 ? 1 : -1);
+  }
+}, { passive: true });
+
+lightbox.addEventListener("click", function(event) {
+  if (event.target === lightbox) closeLightbox();
+});
+</script>
 
 </body>
 </html>
