@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convocations | Kiki Shutters</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0d0d0d;
+      color: #f5f2ed;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 25px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #292929;
+    }
+
+    .logo {
+      font-size: 18px;
+      letter-spacing: 4px;
+    }
+
+    .back {
+      color: #aaa;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    main {
+      padding: 90px 6%;
+    }
+
+    .label {
+      color: #777;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(50px, 8vw, 100px);
+      font-weight: normal;
+      margin-bottom: 60px;
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+    /* TABLET */
+
+    @media (min-width: 701px) and (max-width: 1024px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      .gallery img {
+        height: 450px;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .gallery img {
+        height: 500px;
+      }
+
+      header {
+        padding: 18px 5%;
+        gap: 12px;
+      }
+
+      .logo {
+        font-size: 14px;
+        letter-spacing: 2px;
+        white-space: nowrap;
+      }
+
+      .back {
+        font-size: 9px;
+        letter-spacing: 1px;
+        text-align: right;
+        white-space: nowrap;
+      }
+    }
+
+    /* LIGHTBOX */
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.96);
+      align-items: center;
+      justify-content: center;
+      padding: 50px 60px;
+      touch-action: pan-y;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+      z-index: 2;
+    }
+
+    .lightbox-close {
+      top: 15px;
+      right: 25px;
+      font-size: 38px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 42px;
+      padding: 15px;
+    }
+
+    .lightbox-prev {
+      left: 10px;
+    }
+
+    .lightbox-next {
+      right: 10px;
+    }
+
+    @media (max-width: 700px) {
+      .lightbox {
+        padding: 45px 35px;
+      }
+
+      .lightbox img {
+        max-width: 100%;
+        max-height: 80vh;
+      }
+
+      .lightbox-close {
+        top: 10px;
+        right: 15px;
+      }
+
+      .lightbox-prev {
+        left: 0;
+      }
+
+      .lightbox-next {
+        right: 0;
+      }
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 6%;
+      color: #666;
+      font-size: 12px;
+      border-top: 1px solid #292929;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">KIKI SHUTTERS</div>
+
+  <a href="index.html" class="back">
+    ← Back to Portfolio
+  </a>
+</header>
+
+<main>
+
+  <div class="label">Selected Work</div>
+
+  <h1>Convocations</h1>
+
+  <div class="gallery">
+
+    <img src="IMG_5770.jpg" alt="Convocation photography by Kiki Shutters" onclick="openLightbox(0)">
+
+    <img src="IMG_5801.jpg" alt="Convocation photography by Kiki Shutters" onclick="openLightbox(1)">
+
+    <img src="IMG_5892.jpg" alt="Convocation photography by Kiki Shutters" onclick="openLightbox(2)">
+
+    <img src="IMG_5957.jpg" alt="Convocation photography by Kiki Shutters" onclick="openLightbox(3)">
+
+  </div>
+
+</main>
+
+<footer>
+  © 2026 Kiki Shutters · Ibadan, Nigeria
+</footer>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+
+  <span class="lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
+
+  <img id="lightboxImage" src="" alt="Convocation photograph">
+
+  <span class="lightbox-next" onclick="changeImage(1)">&#10095;</span>
+
+</div>
+
+<script>
+
+const convocationImages = [
+  "IMG_5770.jpg",
+  "IMG_5801.jpg",
+  "IMG_5892.jpg",
+  "IMG_5957.jpg"
+];
+
+let currentImage = 0;
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+
+function openLightbox(index) {
+  currentImage = index;
+  lightboxImage.src = convocationImages[currentImage];
+  lightbox.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function changeImage(direction) {
+  currentImage =
+    (currentImage + direction + convocationImages.length) %
+    convocationImages.length;
+
+  lightboxImage.src = convocationImages[currentImage];
+}
+
+/* KEYBOARD NAVIGATION */
+
+document.addEventListener("keydown", function(event) {
+  if (!lightbox.classList.contains("active")) return;
+
+  if (event.key === "Escape") closeLightbox();
+  if (event.key === "ArrowRight") changeImage(1);
+  if (event.key === "ArrowLeft") changeImage(-1);
+});
+
+/* MOBILE SWIPE */
+
+let touchStartX = 0;
+
+lightbox.addEventListener("touchstart", function(event) {
+  touchStartX = event.changedTouches[0].screenX;
+}, { passive: true });
+
+lightbox.addEventListener("touchend", function(event) {
+  const touchEndX = event.changedTouches[0].screenX;
+  const difference = touchEndX - touchStartX;
+
+  if (Math.abs(difference) > 50) {
+    changeImage(difference < 0 ? 1 : -1);
+  }
+}, { passive: true });
+
+/* CLOSE LIGHTBOX */
+
+lightbox.addEventListener("click", function(event) {
+  if (event.target === lightbox) closeLightbox();
+});
+
+</script>
+
+</body>
+</html>
