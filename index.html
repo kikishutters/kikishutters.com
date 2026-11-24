@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,16 +7,11 @@
 
   <title>Kiki Shutters | Photographer & Retoucher</title>
 
-  <meta
-    name="description"
-    content="Kiki Shutters — Photographer and retoucher based in Ibadan, creating clean and expressive imagery across portraits, fashion, beauty and editorial work."
-  >
+  <meta name="description" content="Kiki Shutters — Photographer and retoucher based in Ibadan, creating clean and expressive imagery across portraits, fashion, beauty and editorial work.">
 
   <style>
 
-    /* =========================
-       RESET
-    ========================= */
+    /* RESET */
 
     * {
       margin: 0;
@@ -48,10 +44,7 @@
       max-width: 100%;
     }
 
-
-    /* =========================
-       HEADER
-    ========================= */
+    /* HEADER */
 
     header {
       width: 100%;
@@ -71,8 +64,6 @@
       height: auto;
       display: block;
     }
-
-    /* Hamburger */
 
     .menu-toggle {
       width: 42px;
@@ -101,8 +92,6 @@
       border-color: #fff;
     }
 
-    /* Hamburger animation */
-
     .menu-toggle.active span:nth-child(1) {
       transform: translateY(6px) rotate(45deg);
     }
@@ -115,10 +104,7 @@
       transform: translateY(-6px) rotate(-45deg);
     }
 
-
-    /* =========================
-       FULL MENU
-    ========================= */
+    /* FULL MENU */
 
     .menu-overlay {
       position: fixed;
@@ -128,14 +114,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-
-      transition:
-        opacity 0.4s ease,
-        visibility 0.4s ease;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
     }
 
     .menu-overlay.active {
@@ -155,14 +137,9 @@
       font-weight: 400;
       margin: 14px 0;
       color: #eee;
-
       opacity: 0;
       transform: translateY(20px);
-
-      transition:
-        color 0.3s ease,
-        opacity 0.4s ease,
-        transform 0.4s ease;
+      transition: color 0.3s ease, opacity 0.4s ease, transform 0.4s ease;
     }
 
     .menu-overlay.active .menu-content a {
@@ -190,109 +167,104 @@
       color: #999;
     }
 
+    /* HERO */
 
-   /* =========================
-   HERO
-========================= */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: calc(100vh - 107px);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      background: #7d8060;
+    }
 
-.hero {
-  position: relative;
-  width: 100%;
-  min-height: calc(100vh - 107px);
-  overflow: hidden;
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      animation: heroImage 1.2s ease both;
+      transition: transform 1s ease;
+    }
 
-  display: flex;
-  align-items: center;
+    .hero:hover .hero-bg {
+      transform: scale(1.01);
+    }
 
-  background: #7d8060;
-}
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 45%;
+      max-width: 600px;
+      margin-left: auto;
+      padding: 70px 8% 70px 0;
+      animation: heroText 1s ease both;
+    }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
+    .hero-kicker {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #000;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
 
-  width: 100%;
-  height: 100%;
+    .hero-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(58px, 8vw, 120px);
+      line-height: 0.88;
+      letter-spacing: -4px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #f3eee3;
+    }
 
-  object-fit: cover;
-  object-position: center;
+    .hero-title span {
+      display: block;
+      font-style: italic;
+      color: #e8dfcf;
+    }
 
-  display: block;
+    .hero-text {
+      max-width: 430px;
+      color: #eee7da;
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 35px;
+    }
 
-  animation: heroImage 1.2s ease both;
-  transition: transform 1s ease;
-}
+    .hero-button {
+      display: inline-block;
+      padding: 14px 27px;
+      background: #111;
+      color: #fff;
+      border: 1px solid #111;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
 
-.hero:hover .hero-bg {
-  transform: scale(1.01);
-}
+    .hero-button:hover {
+      background: #fff;
+      color: #111;
+      border-color: #fff;
+    }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
+    /* HERO BOOKING BUTTON */
 
-  width: 45%;
-  max-width: 600px;
+    .hero-book-button {
+      display: table;
+      margin-top: 15px;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
 
-  margin-left: auto;
-  padding: 70px 8% 70px 0;
-
-  animation: heroText 1s ease both;
-}
-
-.hero-kicker {
-  font-size: 12px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: #000;
-  font-weight: 700;
-  margin-bottom: 22px;
-}
-
-.hero-title {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(58px, 8vw, 120px);
-  line-height: 0.88;
-  letter-spacing: -4px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  color: #f3eee3;
-}
-
-.hero-title span {
-  display: block;
-  font-style: italic;
-  color: #e8dfcf;
-}
-
-.hero-text {
-  max-width: 430px;
-  color: #eee7da;
-  font-size: 15px;
-  line-height: 1.9;
-  margin-bottom: 35px;
-}
-.hero-button {
-  display: inline-block;
-  padding: 14px 27px;
-
-  background: #111;
-  color: #fff;
-  border: 1px solid #111;
-
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  transition: all 0.3s ease;
-}
-
-
-.hero-button:hover {
-  background: #fff;
-  color: #111;
-  border-color: #fff;
-}
     section {
       padding: 110px 8%;
     }
@@ -316,10 +288,7 @@
       line-height: 1;
     }
 
-
-    /* =========================
-       FEATURED WORK
-    ========================= */
+    /* FEATURED WORK */
 
     .featured {
       background: #111;
@@ -363,18 +332,13 @@
       position: absolute;
       left: 22px;
       bottom: 20px;
-
       font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
-
       text-shadow: 0 2px 10px #000;
     }
 
-
-    /* =========================
-       PORTFOLIO
-    ========================= */
+    /* PORTFOLIO */
 
     .portfolio-grid {
       display: grid;
@@ -398,24 +362,21 @@
     }
 
     .portfolio-card:hover img {
-  transform: scale(1.05);
-  filter: brightness(0.8);
-}
+      transform: scale(1.05);
+      filter: brightness(0.8);
+    }
+
     .portfolio-overlay {
       position: absolute;
       inset: 0;
-
       display: flex;
       align-items: flex-end;
-
       padding: 28px;
-
-      background:
-        linear-gradient(
-          to top,
-          rgba(0,0,0,0.8),
-          transparent 60%
-        );
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.8),
+        transparent 60%
+      );
     }
 
     .portfolio-overlay h3 {
@@ -424,10 +385,7 @@
       font-weight: 400;
     }
 
-
-    /* =========================
-       ABOUT KIKI
-    ========================= */
+    /* ABOUT KIKI */
 
     .about {
       background: #111;
@@ -447,12 +405,9 @@
       line-height: 1;
     }
 
-    /* This is the bio */
-
     .about-text {
       max-width: 650px;
       color: #aaa;
-
       font-size: 14px;
       line-height: 1.9;
     }
@@ -461,28 +416,20 @@
       margin-top: 22px;
     }
 
-
-    /* =========================
-       SERVICES
-    ========================= */
+    /* SERVICES */
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-
       gap: 1px;
-
       background: #292929;
       border: 1px solid #292929;
     }
 
     .service {
       background: #0b0b0b;
-
       padding: 40px 30px;
-
       min-height: 220px;
-
       transition: background 0.3s ease;
     }
 
@@ -510,10 +457,7 @@
       line-height: 1.8;
     }
 
-
-    /* =========================
-       CONTACT
-    ========================= */
+    /* CONTACT */
 
     .contact {
       text-align: center;
@@ -536,25 +480,17 @@
       line-height: 1.8;
     }
 
-    /* BOOK A SHOOT */
-
     .contact-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
       padding: 16px 32px;
-
       background: #fff;
       color: #000;
-
       font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
-
-      transition:
-        background 0.3s ease,
-        transform 0.3s ease;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
 
     .contact-button:hover {
@@ -562,36 +498,25 @@
       transform: translateY(-2px);
     }
 
-
-    /* =========================
-       SOCIAL ICONS
-    ========================= */
+    /* SOCIAL ICONS */
 
     .social-links {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 18px;
-
       margin-top: 35px;
     }
 
     .social-link {
       width: 42px;
       height: 42px;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       border: 1px solid #444;
-
       color: #ddd;
-
-      transition:
-        color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease;
+      transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
     }
 
     .social-link:hover {
@@ -606,33 +531,22 @@
       fill: currentColor;
     }
 
-
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
     footer {
       padding: 35px 8%;
-
       display: flex;
       justify-content: space-between;
       align-items: center;
-
       border-top: 1px solid #222;
-
       color: #777;
-
       font-size: 11px;
       letter-spacing: 1px;
     }
 
-
-    /* =========================
-       ANIMATIONS
-    ========================= */
+    /* ANIMATIONS */
 
     @keyframes heroImage {
-
       from {
         opacity: 0;
         transform: translateY(25px);
@@ -642,11 +556,9 @@
         opacity: 1;
         transform: translateY(0);
       }
-
     }
 
     @keyframes heroText {
-
       from {
         opacity: 0;
         transform: translateX(25px);
@@ -656,65 +568,60 @@
         opacity: 1;
         transform: translateX(0);
       }
-
     }
 
-/* =========================
-   TABLET
-========================= */
+    /* TABLET */
 
-@media (min-width: 701px) and (max-width: 1024px) {
+    @media (min-width: 701px) and (max-width: 1024px) {
 
-  .hero {
-    min-height: 80svh;
-  }
+      .hero {
+        min-height: 80svh;
+      }
 
-  .hero-bg {
-    object-position: 22% center;
-  }
+      .hero-bg {
+        object-position: 22% center;
+      }
 
-  .hero-content {
-    width: 50%;
-    max-width: 520px;
-    padding: 50px 6% 50px 0;
-  }
+      .hero-content {
+        width: 50%;
+        max-width: 520px;
+        padding: 50px 6% 50px 0;
+      }
 
-  .hero-kicker {
-    font-size: 10px;
-    letter-spacing: 3px;
-    margin-bottom: 18px;
-  }
+      .hero-kicker {
+        font-size: 10px;
+        letter-spacing: 3px;
+        margin-bottom: 18px;
+      }
 
-  .hero-title {
-    font-size: clamp(55px, 8vw, 82px);
-    letter-spacing: -3px;
-    line-height: 0.9;
-    margin-bottom: 25px;
-  }
+      .hero-title {
+        font-size: clamp(55px, 8vw, 82px);
+        letter-spacing: -3px;
+        line-height: 0.9;
+        margin-bottom: 25px;
+      }
 
-  .hero-text {
-    max-width: 360px;
-    font-size: 14px;
-    line-height: 1.8;
-    margin-bottom: 30px;
-  }
+      .hero-text {
+        max-width: 360px;
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
 
-  .hero-button {
-    width: auto;
-  }
+      .hero-button {
+        width: auto;
+      }
 
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
-  .about-grid {
-    gap: 50px;
-  }
+      .about-grid {
+        gap: 50px;
+      }
+    }
 
-}
-    /* =========================
-       MOBILE
-    ========================= */
+    /* MOBILE */
 
     @media (max-width: 700px) {
 
@@ -731,75 +638,78 @@
         height: 30px;
       }
 
-
-      /* MENU */
-
       .menu-content a {
         font-size: 35px;
         margin: 12px 0;
       }
 
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        overflow: hidden;
+        background: #7d8060;
+      }
 
- /* HERO */
-.hero {
-  position: relative;
-  min-height: 100svh;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  overflow: hidden;
-  background: #7d8060;
-}
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 18% center;
+        animation: none;
+        transform: none;
+      }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 18% center;
-  animation: none;
-  transform: none;
-}
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        width: 58%;
+        max-width: none;
+        margin-left: auto;
+        padding: 40px 4% 40px 0;
+        animation: heroText 1s ease both;
+      }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  width: 58%;
-  max-width: none;
-  margin-left: auto;
-  padding: 40px 4% 40px 0;
-  animation: heroText 1s ease both;
-}
+      .hero-kicker {
+        font-size: 9px;
+        letter-spacing: 2.5px;
+        margin-bottom: 16px;
+        color: #000;
+      }
 
-.hero-kicker {
-  font-size: 9px;
-  letter-spacing: 2.5px;
-  margin-bottom: 16px;
-  color: #000;
-}
+      .hero-title {
+        font-size: clamp(38px, 10vw, 52px);
+        letter-spacing: -3px;
+        line-height: 0.9;
+        margin-bottom: 22px;
+        white-space: normal;
+      }
 
-.hero-title {
-  font-size: clamp(38px, 10vw, 52px);
-  letter-spacing: -3px;
-  line-height: 0.9;
-  margin-bottom: 22px;
-  white-space: normal;
-}
-    
-.hero-text {
-  max-width: 260px;
-  font-size: 12px;
-  line-height: 1.7;
-  margin-bottom: 25px;
-}
+      .hero-text {
+        max-width: 260px;
+        font-size: 12px;
+        line-height: 1.7;
+        margin-bottom: 25px;
+      }
 
-.hero-button {
-  width: auto;
-  text-align: center;
-  padding: 13px 22px;
-}
+      .hero-button {
+        width: auto;
+        text-align: center;
+        padding: 13px 22px;
+      }
+
+      .hero-button.hero-book-button {
+        font-size: 10px;
+        letter-spacing: 2px;
+        padding: 13px 18px;
+        margin-top: 12px;
+      }
+
       /* SECTIONS */
 
       section {
@@ -814,52 +724,51 @@
         font-size: 43px;
       }
 
+      /* FEATURED */
 
-     /* FEATURED */
+      .featured-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
 
-.featured-grid {
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
+      .featured-column {
+        gap: 10px;
+      }
 
-.featured-column {
-  gap: 10px;
-}
+      .featured-item {
+        min-height: 210px;
+      }
 
-.featured-item {
-  min-height: 210px;
-}
+      .featured-item img,
+      .featured-large img {
+        min-height: 210px;
+        height: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+      }
 
-.featured-item img,
-.featured-large img {
-  min-height: 210px;
-  height: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-}
-
-.featured-large {
-  height: 100%;
-}
+      .featured-large {
+        height: 100%;
+      }
 
       /* PORTFOLIO */
 
-   .portfolio-grid {
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
+      .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
 
-.portfolio-card {
-  height: 240px;
-}
+      .portfolio-card {
+        height: 240px;
+      }
 
-.portfolio-overlay {
-  padding: 15px;
-}
+      .portfolio-overlay {
+        padding: 15px;
+      }
 
-.portfolio-overlay h3 {
-  font-size: 20px;
-}
+      .portfolio-overlay h3 {
+        font-size: 20px;
+      }
 
       /* ABOUT */
 
@@ -877,25 +786,24 @@
         line-height: 1.9;
       }
 
-
       /* SERVICES */
 
       .services-grid {
-  grid-template-columns: 1fr 1fr;
-}
+        grid-template-columns: 1fr 1fr;
+      }
 
-.service {
-  min-height: 210px;
-  padding: 25px 18px;
-}
+      .service {
+        min-height: 210px;
+        padding: 25px 18px;
+      }
+
       .service:last-child {
-  grid-column: 1 / -1;
-}
+        grid-column: 1 / -1;
+      }
 
       .service-number {
         margin-bottom: 25px;
       }
-
 
       /* CONTACT */
 
@@ -915,32 +823,21 @@
         width: 100%;
       }
 
-
-      /* SOCIAL */
-
       .social-links {
         margin-top: 30px;
       }
-
 
       /* FOOTER */
 
       footer {
         padding: 25px 6%;
-
         flex-direction: column;
-
         gap: 12px;
-
         text-align: center;
       }
-
     }
 
-
-    /* =========================
-       SMALL PHONES
-    ========================= */
+    /* SMALL PHONES */
 
     @media (max-width: 400px) {
 
@@ -956,33 +853,29 @@
         height: 380px;
       }
 
+      .hero-button {
+        font-size: 10px;
+        padding: 13px 18px;
+        letter-spacing: 2px;
+      }
     }
 
   </style>
 </head>
 
-
 <body>
 
-
-  <!-- =========================
-       HEADER
-  ========================= -->
+  <!-- HEADER -->
 
   <header>
 
     <a href="index.html">
-
       <img
         src="Group%20of%204%20Objects.png"
         alt="Kiki Shutters"
         class="logo-img"
       >
-
     </a>
-
-
-    <!-- Hamburger button -->
 
     <button
       class="menu-toggle"
@@ -990,79 +883,87 @@
       aria-label="Open menu"
       aria-expanded="false"
     >
-
       <span></span>
       <span></span>
       <span></span>
-
     </button>
 
   </header>
 
-
-  <!-- =========================
-       MENU
-  ========================= -->
+  <!-- MENU -->
 
   <div class="menu-overlay" id="menuOverlay">
 
     <nav class="menu-content">
-      
-  <a href="index.html">Home</a>
-      
-  <a href="#work">Work</a>
-      
-  <a href="#about">About</a>
-      
-  <a href="#services">Services</a>
-      
-  <a href="#contact">Contact</a>
+
+      <a href="index.html">Home</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
 
     </nav>
 
   </div>
 
-
-  <!-- =========================
-       MAIN
-  ========================= -->
-
   <main>
-
 
     <!-- HERO -->
 
     <section class="hero">
-  <img src="IMG_4798.jpg" alt="Photography by Kiki Shutters" class="hero-bg">
 
-  <div class="hero-content">
-    <div class="hero-kicker">Photographer & Retoucher</div>
+      <img
+        src="IMG_4798.jpg"
+        alt="Photography by Kiki Shutters"
+        class="hero-bg"
+      >
 
-    <h1 class="hero-title">
-      KIKI <span>SHUTTERS</span>
-    </h1>
+      <div class="hero-content">
 
-    <p class="hero-text">
-      Photography and retouching focused on clean, expressive imagery with an editorial touch.
-      Based in Ibadan, Nigeria.
-    </p>
+        <div class="hero-kicker">
+          Photographer & Retoucher
+        </div>
 
-    <a href="#work" class="hero-button">View my Work</a>
-  </div>
-</section>
-    <!-- =========================
-         FEATURED WORK
-    ========================= -->
+        <h1 class="hero-title">
+          KIKI <span>SHUTTERS</span>
+        </h1>
 
-   <section class="featured" id="work">
+        <p class="hero-text">
+          Photography and retouching focused on clean,
+          expressive imagery with an editorial touch.
+          Based in Ibadan, Nigeria.
+        </p>
 
-  <div class="section-heading">
-    <h2 class="section-title">
-      Featured Photography
-    </h2>
-  </div>
+        <a href="#work" class="hero-button">
+          View my Work
+        </a>
 
-  <div class="featured-grid">
+        <a
+          href="https://wa.me/2349113599816?text=Hi%20Kiki%20Shutters!%20I%27d%20like%20to%20book%20a%20photoshoot%20and%20enquire%20about%20your%20packages%20and%20availability."
+          class="hero-button hero-book-button"
+          target="_blank"
+          rel="noopener"
+        >
+          Book a Shoot
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- FEATURED WORK -->
+
+    <section class="featured" id="work">
+
+      <div class="section-heading">
+
+        <h2 class="section-title">
+          Featured Photography
+        </h2>
+
+      </div>
+
+      <div class="featured-grid">
 
         <a
           href="fashion.html"
@@ -1080,9 +981,7 @@
 
         </a>
 
-
         <div class="featured-column">
-
 
           <a
             href="portraits.html"
@@ -1100,7 +999,6 @@
 
           </a>
 
-
           <a
             href="editorial.html"
             class="featured-item"
@@ -1117,20 +1015,15 @@
 
           </a>
 
-
         </div>
 
       </div>
 
     </section>
 
-
-    <!-- =========================
-         PORTFOLIO
-    ========================= -->
+    <!-- PORTFOLIO -->
 
     <section>
-
 
       <div class="section-heading">
 
@@ -1144,9 +1037,7 @@
 
       </div>
 
-
       <div class="portfolio-grid">
-
 
         <a
           href="portraits.html"
@@ -1164,7 +1055,6 @@
 
         </a>
 
-
         <a
           href="fashion.html"
           class="portfolio-card"
@@ -1180,7 +1070,6 @@
           </div>
 
         </a>
-
 
         <a
           href="beauty-and-polaroids.html"
@@ -1198,7 +1087,6 @@
 
         </a>
 
-
         <a
           href="editorials.html"
           class="portfolio-card"
@@ -1214,7 +1102,6 @@
           </div>
 
         </a>
-
 
         <a
           href="weddings.html"
@@ -1232,7 +1119,6 @@
 
         </a>
 
-
         <a
           href="convocations.html"
           class="portfolio-card"
@@ -1249,69 +1135,65 @@
 
         </a>
 
-
       </div>
 
     </section>
 
-
-    <!-- =========================
-         ABOUT KIKI
-    ========================= -->
+    <!-- ABOUT KIKI -->
 
     <section class="about-section" id="about">
 
-  <h2 class="about-title">About Kiki</h2>
+      <h2 class="about-title">
+        About Kiki
+      </h2>
 
-  <p class="about-text">
-    I’m Kiki, a photographer and retoucher based in Ibadan, creating clean,
-    expressive imagery with a focus on portraits, fashion, beauty and editorial
-    work. I’m passionate about bringing ideas to life through thoughtful
-    photography and detailed retouching.
-  </p>
+      <p class="about-text">
+        I’m Kiki, a photographer and retoucher based in Ibadan,
+        creating clean, expressive imagery with a focus on
+        portraits, fashion, beauty and editorial work.
+        I’m passionate about bringing ideas to life through
+        thoughtful photography and detailed retouching.
+      </p>
 
-</section>
+    </section>
 
-<style>
-.about-title {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(48px, 6vw, 78px);
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 35px;
-}
+    <style>
 
-.about-text {
-  max-width: 760px;
-  color: #d0d0d0;
-  font-size: 18px;
-  line-height: 1.8;
-  letter-spacing: 0.01em;
-}
+      .about-title {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(48px, 6vw, 78px);
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 35px;
+      }
 
-@media (max-width: 768px) {
-  .about-title {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 25px;
-  }
+      .about-text {
+        max-width: 760px;
+        color: #d0d0d0;
+        font-size: 18px;
+        line-height: 1.8;
+        letter-spacing: 0.01em;
+      }
 
-  .about-text {
-    font-size: 16px;
-    line-height: 1.8;
-  }
-}
-</style>
+      @media (max-width: 768px) {
 
+        .about-title {
+          font-size: 48px;
+          font-weight: 700;
+          margin-bottom: 25px;
+        }
 
-    <!-- =========================
-         SERVICES
-    ========================= -->
+        .about-text {
+          font-size: 16px;
+          line-height: 1.8;
+        }
+      }
 
-    <section
-      id="services"
-    >
+    </style>
 
+    <!-- SERVICES -->
+
+    <section id="services">
 
       <div class="section-heading">
 
@@ -1325,9 +1207,7 @@
 
       </div>
 
-
       <div class="services-grid">
-
 
         <div class="service">
 
@@ -1335,19 +1215,14 @@
             01
           </div>
 
-          <h3>
-            Photography
-          </h3>
+          <h3>Photography</h3>
 
           <p>
-
             Portraits, fashion, beauty, editorial and
             wedding photography created around your vision.
-
           </p>
 
         </div>
-
 
         <div class="service">
 
@@ -1355,20 +1230,15 @@
             02
           </div>
 
-          <h3>
-            Photo Retouching
-          </h3>
+          <h3>Photo Retouching</h3>
 
           <p>
-
             Professional Photoshop editing and retouching
             with attention to skin, tones, details and
             overall image quality.
-
           </p>
 
         </div>
-
 
         <div class="service">
 
@@ -1376,75 +1246,49 @@
             03
           </div>
 
-          <h3>
-            Creative Shoots
-          </h3>
+          <h3>Creative Shoots</h3>
 
           <p>
-
             Editorial and creative shoots for individuals,
             brands, models and visual campaigns.
-
           </p>
 
         </div>
-
 
       </div>
 
     </section>
 
+    <!-- CONTACT / BOOK A SHOOT -->
 
-    <!-- =========================
-         CONTACT / BOOK A SHOOT
-    ========================= -->
-
-    <section
-      class="contact"
-      id="contact"
-    >
-
+    <section class="contact" id="contact">
 
       <div class="section-label">
         Let's Work Together
       </div>
 
-
       <h2 class="contact-title">
         Have a project?
       </h2>
 
-
       <p class="contact-text">
-
         For bookings, collaborations, photography or
         retouching enquiries, get in touch and let's
         create something intentional.
-
       </p>
 
-
-      <!--
-        REPLACE YOUR_WHATSAPP_NUMBER
-        WITH YOUR WHATSAPP NUMBER.
-
-        Example format:
-        https://wa.me/234XXXXXXXXXX
-      -->
-
       <a
-        href="https://wa.me/2349113599816"
+        href="https://wa.me/2349113599816?text=Hi%20Kiki%20Shutters!%20I%27d%20like%20to%20book%20a%20photoshoot%20and%20enquire%20about%20your%20packages%20and%20availability."
         class="contact-button"
         target="_blank"
+        rel="noopener"
       >
         Book a Shoot
       </a>
 
-
       <!-- SOCIAL ICONS -->
 
       <div class="social-links">
-
 
         <!-- INSTAGRAM -->
 
@@ -1455,10 +1299,7 @@
           aria-label="Instagram"
         >
 
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
 
             <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5zm8.75 2.75a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/>
 
@@ -1466,13 +1307,7 @@
 
         </a>
 
-
-        <!--
-          TIKTOK
-
-          Replace YOUR_TIKTOK_USERNAME
-          with your actual TikTok username.
-        -->
+        <!-- TIKTOK -->
 
         <a
           href="https://www.tiktok.com/@kikishutters"
@@ -1481,29 +1316,21 @@
           aria-label="TikTok"
         >
 
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
 
-            <path d="M16.6 2c.2 1.8 1.2 3.2 3 4v3.1c-1.3-.1-2.5-.5-3.6-1.2v7.3c0 4.1-2.9 6.8-6.7 6.8-3.7 0-6.3-2.6-6.3-6.1 0-3.7 2.9-6.2 6.6-6.2.4 0 .8 0 1.2.1v3.2c-.4-.1-.8-.2-1.2-.2-1.7 0-3.1 1.1-3.1 3 0 1.7 1.2 2.9 2.9 2.9 1.8 0 3.4-1.2 3.4-3.7V2h3.8z"/>
+            <path d="M16.6 2c.2 1.8 1.2 3.2 3 4v3.1c-1.3-.1-2.5-.5-3.6-1.2v7.3c0 4.1-2.9 6.8-6.7 6.8-3.7 0-6.3-2.8-6.3-6.1 0-3.7 3-6.4 6.6-6.1v3.2c-1.8-.3-3.4.8-3.4 2.8 0 1.8 1.4 3 3.1 3 2 0 3.5-1.1 3.5-3.8V2h3.8z"/>
 
           </svg>
 
         </a>
 
-
       </div>
 
     </section>
 
-
   </main>
 
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -1517,10 +1344,7 @@
 
   </footer>
 
-
-  <!-- =========================
-       JAVASCRIPT
-    ========================= -->
+  <!-- JAVASCRIPT -->
 
   <script>
 
@@ -1528,69 +1352,50 @@
     const menuOverlay = document.getElementById("menuOverlay");
     const menuLinks = document.querySelectorAll(".menu-content a");
 
-
     function openMenu() {
 
       menuToggle.classList.add("active");
-
       menuOverlay.classList.add("active");
-
       document.body.classList.add("menu-open");
 
       menuToggle.setAttribute("aria-expanded", "true");
-
       menuToggle.setAttribute("aria-label", "Close menu");
 
     }
 
-
     function closeMenu() {
 
       menuToggle.classList.remove("active");
-
       menuOverlay.classList.remove("active");
-
       document.body.classList.remove("menu-open");
 
       menuToggle.setAttribute("aria-expanded", "false");
-
       menuToggle.setAttribute("aria-label", "Open menu");
 
     }
 
-
     menuToggle.addEventListener("click", function() {
 
       if (menuOverlay.classList.contains("active")) {
-
         closeMenu();
-
       } else {
-
         openMenu();
-
       }
 
     });
 
-
     menuLinks.forEach(function(link) {
 
       link.addEventListener("click", function() {
-
         closeMenu();
-
       });
 
     });
 
-
     document.addEventListener("keydown", function(event) {
 
       if (event.key === "Escape") {
-
         closeMenu();
-
       }
 
     });
