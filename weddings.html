@@ -260,47 +260,73 @@
 
   let currentImage = 0;
 
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImage = document.getElementById("lightboxImage");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
 
-  function openLightbox(index) {
-    currentImage = index;
-    lightboxImage.src = weddingImages[currentImage];
-    lightbox.classList.add("active");
-    document.body.style.overflow = "hidden";
+function openLightbox(index) {
+  currentImage = index;
+  lightboxImage.src = weddingImages[currentImage];
+  lightbox.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function nextImage() {
+  currentImage = (currentImage + 1) % weddingImages.length;
+  lightboxImage.src = weddingImages[currentImage];
+}
+
+function previousImage() {
+  currentImage =
+    (currentImage - 1 + weddingImages.length) % weddingImages.length;
+
+  lightboxImage.src = weddingImages[currentImage];
+}
+
+/* KEYBOARD NAVIGATION */
+
+document.addEventListener("keydown", function(event) {
+  if (!lightbox.classList.contains("active")) return;
+
+  if (event.key === "ArrowRight") nextImage();
+  if (event.key === "ArrowLeft") previousImage();
+  if (event.key === "Escape") closeLightbox();
+});
+
+/* CLOSE LIGHTBOX */
+
+lightbox.addEventListener("click", function(event) {
+  if (event.target === lightbox) {
+    closeLightbox();
   }
+});
 
-  function closeLightbox() {
-    lightbox.classList.remove("active");
-    document.body.style.overflow = "";
-  }
+/* MOBILE SWIPE NAVIGATION */
 
-  function nextImage() {
-    currentImage = (currentImage + 1) % weddingImages.length;
-    lightboxImage.src = weddingImages[currentImage];
-  }
+let touchStartX = 0;
 
-  function previousImage() {
-    currentImage =
-      (currentImage - 1 + weddingImages.length) % weddingImages.length;
+lightbox.addEventListener("touchstart", function(event) {
+  touchStartX = event.changedTouches[0].screenX;
+}, { passive: true });
 
-    lightboxImage.src = weddingImages[currentImage];
-  }
+lightbox.addEventListener("touchend", function(event) {
+  const touchEndX = event.changedTouches[0].screenX;
+  const difference = touchEndX - touchStartX;
 
-  document.addEventListener("keydown", function(event) {
-    if (!lightbox.classList.contains("active")) return;
-
-    if (event.key === "ArrowRight") nextImage();
-    if (event.key === "ArrowLeft") previousImage();
-    if (event.key === "Escape") closeLightbox();
-  });
-
-  lightbox.addEventListener("click", function(event) {
-    if (event.target === lightbox) {
-      closeLightbox();
+  if (Math.abs(difference) > 50) {
+    if (difference < 0) {
+      nextImage();
+    } else {
+      previousImage();
     }
-  });
+  }
+}, { passive: true });
+
 </script>
-  
+
 </body>
 </html>
